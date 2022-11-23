@@ -78,6 +78,7 @@ h1,h2,h3,h4,h5,h6{
 
    .btn-default:hover {
       color: var(--orange-color) !important;
+      border-color: var(--orange-color) !important;
    }
    .title-sec{
       margin-bottom: 30px;
