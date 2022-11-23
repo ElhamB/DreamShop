@@ -1,13 +1,87 @@
+:root {
+  --red-color: #EB0B0B;
+  --gray-color: #959595;
+  --orange-color: #F1B437;
+}
+a, a:hover, a:focus {
+   text-decoration: none;
+   outline: none;
+}
+main{
+   min-height:200px;
+}
+img{
+   max-width: 100%;
+   height: auto;
+}
+button:focus, input, button, input:focus {
+   outline: none;
+}
+.modal-backdrop{
+   z-index: 90;
+}
+.modal{
+   z-index: 100;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   direction: ltr;
+   font-family: sans-serif;
+   font-size: 16px;
+   -webkit-font-smoothing: antialiased;
+   overflow-x: hidden;
+   text-align:left;
+   color: #2b2b2b;
+   margin: 0;
+   padding: 0;
+   vertical-align: middle;
+ outline: none;
+}
+h1,h2,h3,h4,h5,h6{
+   user-select: none;
+   -webkit-user-select: none;
+   font-weight: bold;
+}
+.btn-default {
+   background-color: transparent;
+   border: 1px solid var(--orange-color);
+   color: #fff;
+   position: relative;
+   overflow: hidden;
+   z-index: 1;
+   border-radius:24px;
+   padding: 8px 24px;
+   margin-bottom: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+   .btn-default::before,
+   .btn-default::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: var(--orange-color);
+      z-index: -1;
+      transition: all 0.3s ease-in-out;
+      width: 51%;
+   }
+
+   .btn-default::after {
+      right: 0;
+      left: auto;
+   }
+
+   .btn-default:hover:before,
+   .btn-default:hover:after {
+      width: 0;
+   }
+
+   .btn-default:hover {
+      color: var(--orange-color) !important;
+   }
+   .title-sec{
+      margin-bottom: 30px;
+   }
+.text-center{
+   text-align: center;
 }

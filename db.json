@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "2-Seater",
+      "image1": "/images/product_1_1.jpg",
+      "image2": "/images/product_1_2.jpg",
+      "description": "توضیحات محصول",
+      "price": 599.99,
+      "category":"Furniture",
+      "comments":[
+        {
+          "id": 1,
+          "name":"ali",
+          "comment": "Awesome...."
+        },
+        {
+          "id": 2,
+          "name":"mina",
+          "comment": "I love this product"
+   
+        }
+      ]
+        
+      
+
+    },
+    {
+      "id": 2,
+      "title": "Can 2-Seater Sofa",
+      "image1": "/images/product_4_1.jpg",
+      "image2": "/images/product_4_2.jpg",
+      "description": "توضیحات محصول",
+      "price": 799.99,
+      "category":"Furniture"
+    },
+    {
+      "id": 3,
+      "title": "Flow Slim Armchair",
+      "image1": "/images/product_8_1.jpg",
+      "image2": "/images/product_8_2.jpg",
+      "description": "توضیحات محصول",
+      "price": 809.99,
+      "category":"seat"
+    },
+    {
+      "id": 4,
+      "title": "Roots Sofa Bed",
+      "image1": "/images/product_11_1.jpg",
+      "image2": "/images/product_11_2.jpg",
+      "description": "توضیحات محصول",
+      "price": 290.99, 
+      "category":"seat"
+    },
+    {
+      "id": 5,
+      "title": "Cushion Set 3 Pieces",
+      "image1": "/images/product_1_1.jpg",
+      "image2": "/images/product_1_2.jpg",
+       "description": "توضیحات محصول",
+      "price": 340.99,
+      "category":"seat"
+    },
+    {
+      "id": 6,
+      "title": "Carronade Table",
+      "image1": "/images/product_8_1.jpg",
+      "image2": "/images/product_8_2.jpg",
+      "description": "توضیحات محصول",
+      "price": 590.99,
+      "category":"table"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "name":"ali",
+      "comment": "Awesome....",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "name":"milad",
+      "comment": "It was great",
+      "productId":2
+    },
+    {
+      "id": 3,
+      "name":"elham",
+      "comment": "veryyyy gooood",
+      "productId": 3
+    },
+    {
+      "id": 4,
+      "name":"mina",
+      "comment": "I love this product",
+      "productId": 1
+    }
+
+  ]
+}
