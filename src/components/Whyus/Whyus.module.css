@@ -1,0 +1,12 @@
+.whyus{
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: center;
+}
+.whyus img{margin-bottom: 20px;width: 95px;}
+.whyus figcaption h3{
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}

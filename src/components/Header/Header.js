@@ -35,8 +35,8 @@ const Header = () => {
         </li>
       </ul>
       <ul className='d-flex right-menu'>
-<li><Link to='#'><i className='fa fa-user-o'></i></Link></li>
 <li><button><i className='fa fa-search'></i></button></li>
+<li><Link to='#'><i className='fa fa-user-o'></i></Link></li>
 <li><button><i className='fa fa-shopping-cart'></i><span className='badge rounded-pill bg-warning'>0</span></button></li>
       </ul>
      

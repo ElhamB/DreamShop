@@ -1,0 +1,9 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    background: -webkit-linear-gradient(left, #fff, #fff 50%, #F8F9FA 0%);
+    background: -o-linear-gradient(left, #fff, #fff 50%, #F8F9FA 0%);
+    background: linear-gradient(to left, #fff, #fff 50%, #F8F9FA 0%);
+    padding-top: 55px;
+  }
+

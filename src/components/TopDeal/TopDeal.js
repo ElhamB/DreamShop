@@ -32,10 +32,10 @@ const TopDeal = () => {
   };
   return (
     <div className="container">
-      <div className="row">
+ <div className="row">
         <div className="col-sm-12">
           <div className="text-center pt-4">
-            <h2 className="title-sec">Top Deal</h2>
+            <h2 className="title-sec">Browse Top Deal</h2>
           </div>
           <Carousel responsive={responsive} keyBoardControl={true}>
             {products.map((item) => {
@@ -49,6 +49,7 @@ const TopDeal = () => {
         </div>
       </div>
     </div>
+     
   );
 };
 

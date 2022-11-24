@@ -2,7 +2,7 @@
     position: relative;
     padding-top: 56px;
     padding-bottom: 40px;
-    background-color: #F9F7F6;
+    background-color: #F8F9FA;
   }
   
   .slideshow::before {
@@ -10,7 +10,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #FFFAF8;
+    background-color: #F4F4F4;
     width: 50%;
     height: 360px;
     border-radius: 0% 0px 19% 81%;
@@ -34,7 +34,7 @@
   
   .slide-image {
     position: relative;
-    z-index: 2;
+    z-index: 5;
   }
   
   .img-con {
