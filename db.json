@@ -21,9 +21,6 @@
    
         }
       ]
-        
-      
-
     },
     {
       "id": 2,
@@ -97,5 +94,47 @@
       "productId": 1
     }
 
+  ],
+  "category": [
+    {
+      "id": 1,
+      "title":"Sofa",
+      "image": "/images/51.jpg"
+    },
+    {
+      "id": 2,
+      "title":"TV units",
+      "image": "/images/cat-TV.jpg"
+    },
+    {
+      "id": 3,
+      "title":"Bed",
+      "image": "/images/21.jpg"
+    },
+    {
+      "id":4,
+      "title":"Coffe table",
+      "image": "/images/11.jpg"
+    },
+    {
+      "id":5,
+      "title":"Dining",
+      "image": "/images/cat-dining.jpg"
+    },
+    {
+      "id":6,
+      "title":"Seats",
+      "image": "/images/cat-seat.jpg"
+    },
+    {
+      "id":7,
+      "title":"Bookshelves",
+      "image": "/images/62.jpg"
+    },
+    {
+      "id":8,
+      "title":"Study",
+      "image": "/images/73.jpg"
+    }
   ]
 }

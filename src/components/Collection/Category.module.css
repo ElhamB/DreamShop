@@ -1,0 +1,31 @@
+
+.category{
+    position: relative;
+width: 100%;
+margin-bottom: 20px;
+}
+.category:hover{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.category a {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+.category a img,.category{
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.category a img:hover {
+  transform: scale(1.12);
+  -webkit-transform: scale(1.12);
+}
+
+.category figcaption{
+   background-color: #fff;
+   padding:10px;
+}
+.category figcaption h3 a{
+    font-size: 18px;
+    color: #2b2b2b;
+}

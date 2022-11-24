@@ -6,9 +6,11 @@ import {
 import thunk from "redux-thunk";
 import { composeWithDevTools } from '@redux-devtools/extension';
 import { ProductDetailReducer,ProductListReducer } from "./reducers/ProductReducer";
+import { CategoryListReducer } from "./reducers/CategoryReducer";
 const reducer = combineReducers({
     productList:ProductListReducer,
-    productDetails:ProductDetailReducer
+    productDetails:ProductDetailReducer,
+    categoryList:CategoryListReducer
 });
 // const initialState = {};
 const middleware = [thunk];
