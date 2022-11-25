@@ -1,9 +1,105 @@
-.wrapper {
-    position: relative;
-    width: 100%;
-    background: -webkit-linear-gradient(left, #fff, #fff 50%, #F8F9FA 0%);
-    background: -o-linear-gradient(left, #fff, #fff 50%, #F8F9FA 0%);
-    background: linear-gradient(to left, #fff, #fff 50%, #F8F9FA 0%);
-    padding-top: 55px;
-  }
+.product-details h1 {
+  font-size: 20px;
+}
+.product-details .category {
+  color: var(--orange-color);
+}
+.product-page .btn-default {
+  opacity: 1;
+  width: auto;
+}
+.product-page .price-sec .old-price {
+  display: block;
+}
+.product-page .price-sec .new-price {
+  font-size: 30px;
+}
+.stars .fa-star.checked,
+.stars .fa-star-half-full.checked {
+  color: #ffd700;
+}
 
+.stars .fa-star,
+.stars .fa-star-half-full {
+  color: #ddd;
+  font-size: 17px;
+  vertical-align: middle;
+}
+
+.comment-container {
+  overflow: hidden;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.comment-container .panel-body {
+  padding: 5px;
+}
+.user-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.user-comment img {
+  width: 40px;
+  margin-right: 10px;
+}
+.user-comment .cm-date {
+  font-size: 13px;
+  color: #848484;
+}
+.comment-content {
+  padding-right: 48px;
+}
+.comment-content .person-name {
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.total-comment {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+}
+.total-comment strong {
+  font-size: 30px;
+}
+..total-comment .stars {
+  font-size: 15px;
+}
+.comment-content p {
+  line-height: 23px;
+}
+.btn-quantity {
+  display: flex;
+}
+.btn-quantity button {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid #ddd;
+}
+.btn-quantity .btn-add {
+  border-radius: 24px 0 0 24px;
+  border-right: none;
+}
+.btn-quantity .btn-decrease {
+  border-left: none;
+  border-radius: 0 24px 24px 0;
+}
+.btn-quantity input {
+  width: 40px;
+  border: 1px solid #ddd;
+  -moz-appearance: textfield !important;
+  text-align: center;
+  background: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none !important;
+   margin: 0 !important;
+}

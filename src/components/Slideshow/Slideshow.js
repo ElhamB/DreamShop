@@ -6,7 +6,6 @@ const Slideshow = () => {
     <div id="carouselExampleControls" className="slideshow carousel slide" data-bs-ride="carousel">
     <div className="carousel-inner">
       <div className="carousel-item active">
-      <div className='container'>
         <div className='row'>
           <div className='col-md-6' >
             <div className="content">
@@ -27,10 +26,9 @@ const Slideshow = () => {
           </div>
   
         </div>
-      </div>
+      
       </div>
       <div className="carousel-item">
-      <div className='container'>
         <div className='row'>
           <div className='col-md-6' >
             <div className="content">
@@ -51,7 +49,7 @@ const Slideshow = () => {
           </div>
   
         </div>
-      </div>
+    
       </div>
      
     </div>

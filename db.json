@@ -5,8 +5,9 @@
       "title": "2-Seater",
       "image1": "/images/product_1_1.jpg",
       "image2": "/images/product_1_2.jpg",
-      "description": "توضیحات محصول",
+      "description": "This sofa converts quickly and easily into a spacious bed when you remove the back cushions and pull out the underframe. ",
       "price": 599.99,
+      "measurement":"Length: 230 cm" ,
       "category":"Furniture",
       "comments":[
         {
@@ -29,6 +30,7 @@
       "image2": "/images/product_4_2.jpg",
       "description": "توضیحات محصول",
       "price": 799.99,
+      "measurement":"Length: 230 cm" ,
       "category":"Furniture"
     },
     {
@@ -38,6 +40,7 @@
       "image2": "/images/product_8_2.jpg",
       "description": "توضیحات محصول",
       "price": 809.99,
+      "measurement":"Length: 230 cm" ,
       "category":"seat"
     },
     {
@@ -47,6 +50,7 @@
       "image2": "/images/product_11_2.jpg",
       "description": "توضیحات محصول",
       "price": 290.99, 
+      "measurement":"Length: 230 cm" ,
       "category":"seat"
     },
     {
@@ -56,6 +60,7 @@
       "image2": "/images/product_1_2.jpg",
        "description": "توضیحات محصول",
       "price": 340.99,
+      "measurement":"Length: 230 cm" ,
       "category":"seat"
     },
     {
@@ -65,6 +70,7 @@
       "image2": "/images/product_8_2.jpg",
       "description": "توضیحات محصول",
       "price": 590.99,
+      "measurement":"Length: 230 cm" ,
       "category":"table"
     }
   ],
