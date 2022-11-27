@@ -1,7 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/actions/CartAction";
 import { Link } from "react-router-dom";
-import './Product.css'
+import './Product.css';
+
 const Product = ({product}) => {
+  const dispatch = useDispatch();
+  const addToCartHandler = () => {
+      dispatch(addToCart(product.id))
+  };
   return (
     <figure className="product-items">
     <div className="product-block">
@@ -52,9 +59,9 @@ const Product = ({product}) => {
           <span className="new-price">$220.00</span>{" "}
           <span className="old-price">${product.price}</span>
         </div>
-        <Link className="btn btn-default" to="/cart">
+        <button className="btn btn-default" onClick={addToCartHandler}>
           <i className="fa fa-shopping-cart"></i> Add to cart
-        </Link>
+        </button>
       </figcaption>
     </div>
   </figure>

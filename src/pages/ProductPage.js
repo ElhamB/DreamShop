@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { productDetailAction } from "../redux/actions/ProductAction";
 import Loading from "../components/UI/Loading";
 import CommentList from "../components/Comment/CommentList";
+import CounterButton from "../components/UI/CounterButton";
 import "./ProductPage.css";
 export const ProductPage = () => {
   const { id } = useParams();
@@ -118,7 +119,7 @@ export const ProductPage = () => {
                   </div>
                 </div>
               </div>
-              <CommentList comments={product.comments}/>
+              {/* <CommentList comments={product.comments}/> */}
             </div>
           </div>
         </div>
@@ -141,13 +142,9 @@ export const ProductPage = () => {
             <span className="old-price">${product.price}</span>
             <span className="new-price">$220.00</span>
           </div>
-          <div className="btn-quantity">
-            <button className="btn-add">+</button>
-            <input type="number" min="1" max="12"/>
-            <button className="btn-decrease">-</button>
-          </div>
+        <CounterButton/>
           <button className="btn btn-default" onClick={addToCartHandler}>
-            <i className="fa fa-shopping-cart"></i> Add to cart
+            <i className="fa fa-shopping-cart"></i> Add to Cart
           </button>
         </div>
       </div>

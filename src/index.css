@@ -86,3 +86,15 @@ h1,h2,h3,h4,h5,h6{
 .text-center{
    text-align: center;
 }
+.menu-overlay {
+   background-color: rgba(250, 210, 210, 0.5);
+   cursor: url("/public/images/icon-close.png"), auto;
+   display: none;
+   height: 100%;
+   position: fixed;
+   right: 0;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   z-index: 220;
+}
