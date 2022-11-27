@@ -12,13 +12,15 @@
       "comments":[
         {
           "id": 1,
-          "name":"ali",
+          "name":"John Anderson",
+          "date":"27 Novemeber 2022",
           "comment": "Awesome...."
         },
         {
           "id": 2,
           "name":"mina",
-          "comment": "I love this product"
+          "date":"10 June 2022",
+          "comment": "I love this furniture"
    
         }
       ]

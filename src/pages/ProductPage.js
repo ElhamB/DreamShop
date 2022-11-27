@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { productDetailAction } from "../redux/actions/ProductAction";
+import Loading from "../components/UI/Loading";
+import CommentList from "../components/Comment/CommentList";
 import "./ProductPage.css";
 export const ProductPage = () => {
   const { id } = useParams();
@@ -16,7 +18,11 @@ export const ProductPage = () => {
     navigate(`/cart/${id}`);
   };
   return (
-    <div className="container py-5">
+    <Fragment>
+    {loading &&  <Loading/>}
+    {
+      !loading && (
+      <div className="container py-5">
       <div className="row">
         <div className="col-md-8">
           <div className="text-center">
@@ -112,56 +118,7 @@ export const ProductPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="comment-container row">
-                <div className="col-md-7 col-sm-12">
-                  <div className="user-comment">
-                    <div>
-                      <img src="/images/user.png" alt="" />
-                      <span className="person-name">John</span>
-                    </div>
-                    <span className="cm-date">November 21 2022</span>
-                  </div>
-                  <div className="comment-content">
-                    <div className="panel-body">
-                      <p>It is worth to buy.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-5 col-sm-12">
-                  <div className="per-rating">
-                    <span className="me-2 label-rating">Quality</span>
-                    <span className="stars">
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star"></span>
-                      <span className="fa fa-star"></span>
-                    </span>
-                  </div>
-                  <div className="per-rating">
-                    <span className="me-2 label-rating">Design</span>
-                    <span className="stars">
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star"></span>
-                    </span>
-                  </div>
-                  <div className="per-rating">
-                    <span className="me-2 label-rating">
-                      Satisfaction with price
-                    </span>
-                    <span className="stars">
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star checked"></span>
-                      <span className="fa fa-star"></span>
-                      <span className="fa fa-star"></span>
-                      <span className="fa fa-star"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <CommentList comments={product.comments}/>
             </div>
           </div>
         </div>
@@ -195,5 +152,8 @@ export const ProductPage = () => {
         </div>
       </div>
     </div>
+   ) }
+   </Fragment>
+
   );
 };
