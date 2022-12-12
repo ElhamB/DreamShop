@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../Product/Product";
-import { ProductListAction } from "../../redux/actions/ProductAction";
+import { ProductListAction } from "../../store/Product";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./TopDeal.css";

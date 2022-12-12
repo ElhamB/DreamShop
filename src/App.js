@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { CartToggleAction } from "./redux/actions/UIAction";
+import { CartToggleAction } from "./store/UI";
 import CartModal from "./components/Cart/CartModal";
 import Layout from "./components/Layout/Layout";
 import { HomePage, NotFoundPage, ProductPage } from "./pages";
@@ -8,9 +8,11 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const showCart = useSelector((state) => state.ui);
-  const { cartIsVisible } = showCart;
-  dispatch(CartToggleAction());
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+  const hideCartModalHandler=()=>{
+    dispatch(CartToggleAction());
+  }
+
   return (
     <BrowserRouter>
       <Layout>
@@ -19,7 +21,7 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        {cartIsVisible && <CartModal />}
+        {showCart && <CartModal onClose={hideCartModalHandler} />}
       </Layout>
     </BrowserRouter>
   );

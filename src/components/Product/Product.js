@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/actions/CartAction";
+import { addToCart } from "../../store/Cart";
 import { Link } from "react-router-dom";
 import './Product.css';
 

@@ -1,41 +1,27 @@
-import { Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { useSelector } from "react-redux";
 import Modal from "../UI/Modal";
-import CounterButton from "../UI/CounterButton";
-import "./CartModal.css";
-import React, { Fragment } from 'react'
+import CartItem from "./CartItem";
 
-const CartModal = () => {
-   const cartContentModal = (
+import "./CartModal.css";
+
+const CartModal = (props) => {
+const cartItems=useSelector(state=>state.cart.cartItems);
+
+const cartContentModal = (
       <Fragment>
  <div className="cart-list">
    <div className="cart-menu">
      <div className="cart-bg"></div>
-     <i className="fa fa-remove closeBasketList"></i>
+     <i onClick={props.onClose} className="fa fa-remove closeBasketList"></i>
      <h2 className="title-basketBag text-center">Your Shopping Cart</h2>
      <div className="cart-box">
        {/* <div className="no-item">در حال حاضر سبد شما خالی است </div> */}
        <ul>
-         <li>
-           <div className="pic">
-             <span className="close-basket">
-               <i className="fa fa-close"></i>
-             </span>
-             <Link to="#" title="">
-               <img src="/images/13.jpg" className="" alt="" />
-             </Link>
-           </div>
-           <div className="left">
-             <span>Furniture</span>
-             <div className="price-count">
-               <div>
-                 <span className="price">3000</span>
-               </div>
-               <div className="count-basket">
-                 <CounterButton />
-               </div>
-             </div>
-           </div>
-         </li>
+        {
+          cartItems.map((item)=><CartItem key={item.id} cartItem={item}/>)
+        }
+        
        </ul>
      </div>
      <div className="total-basket mt-2">
@@ -60,7 +46,7 @@ const CartModal = () => {
       </Fragment>
    )
   return (
-  <Modal >
+  <Modal onClose={props.onClose} >
 {cartContentModal}
   </Modal>
   )

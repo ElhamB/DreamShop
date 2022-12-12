@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CategoryListAction } from "../../redux/actions/CategoryAction";
+import { CategoryListAction } from "../../store/Category";
 import classes from "./Collection.module.css";
 import CatgoryItem from "./CatgoryItem";
 const Collection = () => {

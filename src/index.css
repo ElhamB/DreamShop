@@ -23,6 +23,19 @@ button:focus, input, button, input:focus {
 .modal{
    z-index: 100;
 }
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, caption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   vertical-align: middle;
+   outline: none;
+}
 body {
    direction: ltr;
    font-family: sans-serif;
@@ -87,9 +100,8 @@ h1,h2,h3,h4,h5,h6{
    text-align: center;
 }
 .menu-overlay {
-   background-color: rgba(250, 210, 210, 0.5);
+   background-color: rgba(0, 0, 0, 0.5);
    cursor: url("/public/images/icon-close.png"), auto;
-   display: none;
    height: 100%;
    position: fixed;
    right: 0;
