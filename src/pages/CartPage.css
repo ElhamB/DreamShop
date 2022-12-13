@@ -1,0 +1,36 @@
+.order-sec {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+.cart-page h1{
+    margin-bottom: 30px;
+}
+.order-sec .count-basket .btn-quantity input,
+.order-sec .count-basket .btn-quantity button,
+.order-sec ul li .left,
+.order-sec .cart-total .price-total,
+.order-sec .no-item,
+.order-sec .total-basket,
+.order-sec .total-basket .cart-total:last-child {
+    color: #2b2b2b;
+    border-color: #ddd;
+}
+
+.order-sec .cart-total .price-title {
+    color: #929292;
+}
+
+.order-sec .cart-total:last-child .price-title {
+    color: #2b2b2b;
+}
+
+.order-sec .cart-box {
+    margin-top: 0;
+}
+.order-sec .btn-default{
+    width: 100%;
+    margin-top: 20px;
+margin-bottom: 5px;
+}
