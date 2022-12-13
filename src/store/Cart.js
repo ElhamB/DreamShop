@@ -32,11 +32,11 @@ export default function CartReducer (state = { cartItems: [] }, action)  {
     switch (action.type) {
         case CART_ADD_ITEM:
             const item = action.payload
-            const existingItem = state.cartItems.find((i) => i.product === item.product)
+            const existingItem = state.cartItems.find((i) => i.id === item.id)
             if (existingItem) {
                 return {
                     ...state,
-                    cartItems: state.cartItems.map((i) => i.product === existingItem.product ? item : i)
+                    cartItems: state.cartItems.map((i) => i.id === existingItem.id ? item : i)
                 }
             }
             else {
@@ -48,7 +48,7 @@ export default function CartReducer (state = { cartItems: [] }, action)  {
         case CART_REMOVE_ITEM:
             return {
                 ...state,
-                cartItems: state.cartItems.filter((i) => i.product !== action.payload)
+                cartItems: state.cartItems.filter((i) => i.id !== action.payload)
             }
         default:
             return state
