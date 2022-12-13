@@ -14,7 +14,7 @@ return(
       </Link>
     </div>
     <div className="left">
-      <span>Furniture</span>
+      <span>{cartItem.title}</span>
       <div className="price-count">
         <div>
           <span className="price">${cartItem.price}</span>

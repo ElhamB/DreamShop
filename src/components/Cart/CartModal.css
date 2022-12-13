@@ -110,7 +110,7 @@
    font-size: 16px;
 }
 
-.cart-total .price-total {
+.cart-total .price-total ,.no-item{
    color: #fff;
 }
 
