@@ -5,7 +5,14 @@ import './CartBox.css';
 
 const CartBox = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
+    let totalSum = 0;
+    let newArr = [];
+                // {cartItems.reduce((acc, item) => acc + item.price, 0)}
 
+    cartItems.map(item => {
+     newArr.push(item.qty * item.price)
+    }) 
+    totalSum = newArr.reduce((acc, val)=> (acc + val), 0)
     return (
         <Fragment>
             <div className="cart-box">
@@ -19,7 +26,7 @@ const CartBox = () => {
             <div className="total-basket mt-2">
                 <div className="cart-total">
                     <span className="price-title">Sub Total</span>
-                    <span className="price-total">${cartItems.reduce((acc, item) => acc + item.price, 0)}</span>
+                    <span className="price-total">${totalSum}</span>
                 </div>
                 <div className="cart-total">
               <span className="price-title">Shipping</span>
@@ -31,7 +38,7 @@ const CartBox = () => {
             </div> */}
                 <div className="cart-total">
                     <span className="price-title">Total</span>
-                    <span className="price-total">${cartItems.reduce((acc, item) => acc + item.price, 0)}</span>
+                    <span className="price-total">${totalSum + 50}</span>
                 </div>
             </div>
         </Fragment>

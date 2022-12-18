@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { CartToggleAction } from '../../store/UI';
 import { Link } from "react-router-dom";
 import './Header.css'
 
 const Header = () => {
   const dispatch = useDispatch();
+  const carTotalQuantity=useSelector(state=>state.cart.totalQuantity);
+  console.log("carTotalQuantity :"+ carTotalQuantity)
   const toggleCartHandler = () => {
     dispatch(CartToggleAction())
   }
@@ -44,7 +46,7 @@ const Header = () => {
             <ul className='d-flex right-menu'>
               <li><button><i className='fa fa-search'></i></button></li>
               <li><Link to='#'><i className='fa fa-user-o'></i></Link></li>
-              <li><button onClick={toggleCartHandler}><i className='fa fa-shopping-cart'></i><span className='badge rounded-pill bg-warning'>0</span></button></li>
+              <li><button onClick={toggleCartHandler}><i className='fa fa-shopping-cart'></i><span className='badge rounded-pill bg-warning'>{carTotalQuantity}</span></button></li>
             </ul>
 
           </div>
