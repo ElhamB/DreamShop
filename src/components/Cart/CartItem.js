@@ -22,16 +22,14 @@ const CartItem = ({ cartItem }) => {
       <div className="left">
         <span>{cartItem.title}</span>
         <div className="price-count">
-          <div>
             <span className="price">${cartItem.price}</span>
-          </div>
-          <div className="count-basket">
+        </div>
+        <div className="count-basket">
             <CounterButton item={{
               id: cartItem.id,
               qty: cartItem.qty
             }} />
           </div>
-        </div>
       </div>
     </li>
   )

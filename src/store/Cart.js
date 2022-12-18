@@ -27,10 +27,8 @@ export const removeFromCart = (id) => (dispatch, getState) => {
     localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-
-
 //reducers
-export default function CartReducer(state = { cartItems: [], totalQuantity: 0 }, action) {
+export default function CartReducer(state = { cartItems: [] }, action) {
     switch (action.type) {
         case ADD_CART_ITEM:
             const newItem = action.payload

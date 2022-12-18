@@ -60,10 +60,11 @@
 }
 
 .cart-box ul li .left span {
-   margin-bottom: 5px;
    font-size: 15px;
 }
-
+.cart-box ul li .left .price-count{
+margin-bottom:7px;
+}
 .cart-total {
    display: flex;
    align-items: center;

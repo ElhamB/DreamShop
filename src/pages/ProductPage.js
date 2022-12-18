@@ -1,22 +1,23 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { productDetailAction } from "../store/Product";
+import { addToCart } from "../store/Cart";
 import Loading from "../components/UI/Loading";
 import CommentList from "../components/Comment/CommentList";
 import CounterButton from "../components/UI/CounterButton";
 import "./ProductPage.css";
 export const ProductPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetails);
+  const cartItems = useSelector(state => state.cart.cartItems);
   const { loading, product } = productDetail;
   useEffect(() => {
     dispatch(productDetailAction(id));
   }, [dispatch, id]);
   const addToCartHandler = () => {
-    navigate(`/cart/${id}`);
+    dispatch(addToCart(product.id))
   };
   return (
     <Fragment>
@@ -24,7 +25,7 @@ export const ProductPage = () => {
       {
         !loading && (
           <div className="container py-5">
-            <div className="row">
+            <div className="row product-details">
               <div className="col-md-8">
                 <div className="text-center">
                   <img alt="" src={product.image1} className="mb-3" />
@@ -143,7 +144,7 @@ export const ProductPage = () => {
                   <span className="old-price">${product.price}</span>
                   <span className="new-price">$220.00</span>
                 </div>
-                <CounterButton />
+                <CounterButton item={{qty:product.qty, id:product.id}} />
                 <button className="btn btn-default" onClick={addToCartHandler}>
                   <i className="fa fa-shopping-cart"></i> Add to Cart
                 </button>
