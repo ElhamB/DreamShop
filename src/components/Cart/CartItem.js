@@ -26,8 +26,7 @@ const CartItem = ({ cartItem }) => {
         </div>
         <div className="count-basket">
             <CounterButton item={{
-              id: cartItem.id,
-              qty: cartItem.qty
+              id: cartItem.id
             }} />
           </div>
       </div>

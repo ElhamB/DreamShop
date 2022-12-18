@@ -41,10 +41,10 @@ const Header = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#">About us</Link>
+                <Link className="nav-link" to="/about">About us</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#">Contact us</Link>
+                <Link className="nav-link" to="/contact">Contact us</Link>
               </li>
             </ul>
             <ul className='d-flex right-menu'>

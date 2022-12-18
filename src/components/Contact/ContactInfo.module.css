@@ -1,0 +1,34 @@
+.ul-contact{
+    list-style-type: none
+}
+.contact-info{
+display: flex;
+margin-bottom: 20px;
+}
+.contact-info div:first-child{
+border: 1px solid #ddd;
+width: 35px;
+height: 35px;
+line-height: 35px;
+border-radius: 5px;
+text-align: center;
+margin-right: 15px;
+
+}
+.contact-info h5{
+font-size: 1.1rem;
+margin-bottom: 2px;
+}
+.contact-info span{
+    color: var(--gray-color);
+    display: block;
+    margin-bottom: 10px;
+}
+.contact-info a{
+    color: #2b2b2b;
+    font-weight: bold;
+    transition: 0.5s;
+}
+.contact-info a:hover,.contact-info a:focus{
+    color:var(--orange-color);
+}

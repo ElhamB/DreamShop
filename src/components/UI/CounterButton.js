@@ -1,9 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, addToCart } from "../../store/Cart";
 const CounterButton = (props) => {
   const dispatch = useDispatch();
-  const { id, qty } = props.item;
+  const { id } = props.item;
+  const qty = useSelector(state => state.cart.cartItems?.find(item => item.id === id)?.qty);
   const increaseQuantitytHandler = () => {
     dispatch(addToCart(id));
   };

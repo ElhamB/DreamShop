@@ -144,7 +144,7 @@ export const ProductPage = () => {
                   <span className="old-price">${product.price}</span>
                   <span className="new-price">$220.00</span>
                 </div>
-                <CounterButton item={{qty:product.qty, id:product.id}} />
+                <CounterButton item={{ id:product.id}} />
                 <button className="btn btn-default" onClick={addToCartHandler}>
                   <i className="fa fa-shopping-cart"></i> Add to Cart
                 </button>
