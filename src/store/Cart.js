@@ -52,15 +52,12 @@ export default function CartReducer(state = { cartItems: [], totalQuantity: 0 },
             if (existingItem) {
                 return {
                     ...state,
-                    // totalQuantity: state.totalQuantity + 1,
                     cartItems: state.cartItems.map((item) => item.id === existingItem.id ? { ...item, qty: item.qty + 1} : item)
                 }
             }
             else {
                 return {
-                    ...state,
-                    // totalQuantity: state.totalQuantity + 1,
-                  
+                    ...state,                  
                     cartItems: [...state.cartItems, { ...newItem, qty: 1}]
                 }
             }
@@ -68,12 +65,10 @@ export default function CartReducer(state = { cartItems: [], totalQuantity: 0 },
             const quantity = state.cartItems[action.payload].qty
             return {
                 ...state,
-                // totalQuantity: state.totalQuantity - quantity,
                 cartItems: state.cartItems.filter((item) => item.id !== action.payload)
             }
 
         case INCREASE_QUANTITY:
-            // state.totalQuantity = state.totalQuantity + 1;
             return {
                 ...state,
                 cartItems: state.cartItems.map(item =>
@@ -83,7 +78,6 @@ export default function CartReducer(state = { cartItems: [], totalQuantity: 0 },
                 ),
             }
         case DECREASE_QUANTITY:
-            // state.totalQuantity = state.totalQuantity - 1;
             return {
                 ...state,
                 cartItems: state.cartItems.map(item =>

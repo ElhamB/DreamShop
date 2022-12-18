@@ -6,13 +6,11 @@ import './CartBox.css';
 const CartBox = () => {
     const cartItems = useSelector(state => state.cart.cartItems);
     let totalSum = 0;
-    let newArr = [];
-                // {cartItems.reduce((acc, item) => acc + item.price, 0)}
-
+    let subTotal = [];
     cartItems.map(item => {
-     newArr.push(item.qty * item.price)
-    }) 
-    totalSum = newArr.reduce((acc, val)=> (acc + val), 0)
+        subTotal.push(item.qty * item.price)
+    })
+    totalSum = subTotal.reduce((acc, val) => (acc + val), 0)
     return (
         <Fragment>
             <div className="cart-box">
@@ -29,9 +27,9 @@ const CartBox = () => {
                     <span className="price-total">${totalSum}</span>
                 </div>
                 <div className="cart-total">
-              <span className="price-title">Shipping</span>
-              <span className="price-total">$50</span>
-            </div> 
+                    <span className="price-title">Shipping</span>
+                    <span className="price-total">$50</span>
+                </div>
                 {/* <div className="cart-total">
               <span className="price-title">Discounts</span>
               <span className="price-total">$500</span>
