@@ -24,7 +24,7 @@ const CartBox = () => {
             <div className="total-basket mt-2">
                 <div className="cart-total">
                     <span className="price-title">Sub Total</span>
-                    <span className="price-total">${totalSum}</span>
+                    <span className="price-total">${totalSum.toFixed(2)}</span>
                 </div>
                 <div className="cart-total">
                     <span className="price-title">Shipping</span>
@@ -36,7 +36,7 @@ const CartBox = () => {
             </div> */}
                 <div className="cart-total">
                     <span className="price-title">Total</span>
-                    <span className="price-total">${totalSum + 50}</span>
+                    <span className="price-total">${(totalSum + 50).toFixed(2) }</span>
                 </div>
             </div>
         </Fragment>

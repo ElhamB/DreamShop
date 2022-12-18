@@ -1,15 +1,14 @@
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8000";
 //action types
-const CART_ADD_ITEM = "CART_ADD_ITEM";
-const CART_REMOVE_ITEM = "CART_REMOVE_ITEM";
-const INCREASE_QUANTITY = 'INCREASE_QUANTITY';
-const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
+const ADD_CART_ITEM = "ADD_CART_ITEM";
+const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+
 //action creators
 export const addToCart = (id) => async (dispatch, getState) => {
     const { data } = await axios.get(`/products/${id}`);
     dispatch({
-        type: CART_ADD_ITEM,
+        type: ADD_CART_ITEM,
         payload: {
             id: data.id,
             title: data.title,
@@ -22,31 +21,18 @@ export const addToCart = (id) => async (dispatch, getState) => {
 
 export const removeFromCart = (id) => (dispatch, getState) => {
     dispatch({
-        type: CART_REMOVE_ITEM,
+        type: REMOVE_CART_ITEM,
         payload: id,
     });
     localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const increaseQuantity = (id) => (dispatch, getState) => {
-    dispatch({
-        type: INCREASE_QUANTITY,
-        payload: id
-    });
-    localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
-}
-export const decreaseQuantity = (id) => (dispatch, getState) => {
-    dispatch({
-        type: DECREASE_QUANTITY,
-        payload: id
-    });
-    localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
-}
+
 
 //reducers
 export default function CartReducer(state = { cartItems: [], totalQuantity: 0 }, action) {
     switch (action.type) {
-        case CART_ADD_ITEM:
+        case ADD_CART_ITEM:
             const newItem = action.payload
             const existingItem = state.cartItems.find((item) => item.id === newItem.id)
             if (existingItem) {
@@ -61,34 +47,28 @@ export default function CartReducer(state = { cartItems: [], totalQuantity: 0 },
                     cartItems: [...state.cartItems, { ...newItem, qty: 1}]
                 }
             }
-        case CART_REMOVE_ITEM:
-            const quantity = state.cartItems[action.payload].qty
-            return {
+       
+        case REMOVE_CART_ITEM:
+            const foundItem = state.cartItems.find(({ id }) => id === action.payload);
+            if (foundItem?.qty > 1) {
+                return {
+                    ...state,
+                    cartItems: state.cartItems.map(item =>
+                        item.id === action.payload
+                            ? {
+                                ...item,
+                                qty: item.qty !== 1 ? item.qty - 1 : 1,
+                            }
+                            : item,
+                    ),
+                }
+            } else {
+              return {
                 ...state,
-                cartItems: state.cartItems.filter((item) => item.id !== action.payload)
+                cartItems:state.cartItems.filter(({ id }) => id !== action.payload)
+              }
             }
-
-        case INCREASE_QUANTITY:
-            return {
-                ...state,
-                cartItems: state.cartItems.map(item =>
-                    item.id === action.payload
-                        ? { ...item, qty: item.qty + 1 }
-                        : item,
-                ),
-            }
-        case DECREASE_QUANTITY:
-            return {
-                ...state,
-                cartItems: state.cartItems.map(item =>
-                    item.id === action.payload
-                        ? {
-                            ...item,
-                            qty: item.qty !== 1 ? item.qty - 1 : 1,
-                        }
-                        : item,
-                ),
-            };
+     
         default:
             return state
     }
