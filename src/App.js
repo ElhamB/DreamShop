@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartToggleAction } from "./store/UI";
 import CartModal from "./components/Cart/CartModal";
 import Layout from "./components/Layout/Layout";
-import { HomePage, NotFoundPage, ProductPage,CartPage,ContactPage } from "./pages";
+import { HomePage, NotFoundPage, ProductPage,CartPage,ContactPage,SearchPage } from "./pages";
 import "./App.css";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart/:id" element={<CartPage />} />
+          <Route path="/search/:category" element={<SearchPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
