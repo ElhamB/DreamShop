@@ -1,5 +1,5 @@
 import React from "react";
-import PriceSlider from "../PriceSlider/PriceSlider";
+import {PriceSlider} from "../PriceSlider/PriceSlider";
 const SearchFilter = () => {
   return (
     <div className="accordion" id="accordionFilter">

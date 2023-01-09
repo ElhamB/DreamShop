@@ -5,7 +5,6 @@ import { ProductListAction } from "../../store/Product";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./TopDeal.css";
-import PriceSlider from "../PriceSlider/PriceSlider";
 const TopDeal = () => {
   const productList = useSelector((state) => state.productList);
   const { products } = productList;
@@ -49,7 +48,6 @@ const TopDeal = () => {
           </Carousel>
         </div>
       </div>
-      <PriceSlider/>
     </div>
      
   );

@@ -1,96 +1,52 @@
-import React, { Fragment, useState } from "react";
-import ReactSlider from "react-slider";
-import styled from "styled-components";
+import React, { Fragment,useState } from "react";
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
-const PriceSlider = () => {
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(5000);
-  const StyledSlider = styled(ReactSlider)`
-    width: 100%;
-    height: 10px;
-  `;
+export const PriceSlider = () => {
+  const [[min, max], setState] = useState ([0, 5000]);
 
-  const StyledThumb = styled.div`
-    height: 25px;
-    line-height: 25px;
-    width: 25px;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #f1b437;
-    color: #2b2b2b;
-    border-radius: 50%;
-    cursor: grab;
-    top: -6px;
-  `;
+  const onSliderChange = (value) => {
+    console.log(value);
+    setState(value);
+  };
 
-  const Thumb = (props, state) => (
-    <StyledThumb {...props}>{state.valueNow}</StyledThumb>
-  );
+ const onMinChange = (e) => {
+    setState([
+      +e.target.value || 0,
+      max
+    ]);
+  };
 
-  const StyledTrack = styled.div`
-    top: 0;
-    bottom: 0;
-    background: ${(props) =>
-      props.index === 2 ? "#ddd" : props.index === 1 ? "#F1B437" : "#ddd"};
-    border-radius: 999px;
-  `;
+  const onMaxChange = (e) => {
+    setState([
+      min,
+      +e.target.value || 5000,
+    ]);
+  }
 
-  const Track = (props, state) => (
-    <StyledTrack {...props} index={state.index} />
-  );
   return (
     <Fragment>
-      <StyledSlider
-        min="0"
-        max="5000"
-        defaultValue={[min, max]}
-        renderTrack={Track}
-        renderThumb={Thumb}
-        onChange={([min, max]) => {
-                setMin(min);
-                 setMax(max);
-              }}
-      />
-      <div className="values-wrapper">
-        <div>min:{min}</div>
-        <div>max:{max}</div>
+         <div>
+        <label>Min: </label>
+        <input type="number" value={min} onChange={onMinChange} />
+        <br />
+        <label>Max: </label>
+        <input type="number" value={max} onChange={onMaxChange} />
+        <br />
+        <br />
+        <Slider
+          range
+          defaultValue={[50, 750]}
+          min={0}
+          max={5000}
+          onChange={onSliderChange}
+          value={[min,max]}
+        />
       </div>
+    
     </Fragment>
   );
 };
-// const PriceSlider = () => {
-//   const [min, setMin] = useState(0);
-//   const [max, setMax] = useState(5000);
-//   return (
-//     <div>
 
-//       <ReactSlider
-//         defaultValue={[min, max]}
-//         className="slider"
-//         trackClassName="tracker"
-//         min={0}
-//         max={5000}
-//         minDistance={50}
-//         step={50}
-//         withTracks={true}
-//         pearling={true}
-//         renderThumb={(props) => {
-//           return <div {...props} className="thumb"></div>;
-//         }}
-//         renderTrack={(props) => {
-//           return <div {...props} className="track"></div>;
-//         }}
-//         onChange={([min, max]) => {
-//           setMin(min);
-//           setMax(max);
-//         }}
-//       />
-//       <div className="values-wrapper">
-//         <div>min:{min}</div>
-//         <div>max:{max}</div>
-//       </div>
-//     </div>
-//   );
-// };
 
-export default PriceSlider;
+
