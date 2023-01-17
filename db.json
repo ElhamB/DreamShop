@@ -31,7 +31,7 @@
       "description": "This sofa converts quickly and easily into a spacious bed when you remove the back cushions and pull out the underframe. ",
       "price": 599.99,
       "measurement":"Length: 230 cm" ,
-      "category":"Furniture",
+      "categoryId":1,
       "comments":[
         {
           "id": 1,
@@ -56,7 +56,7 @@
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 799.99,
       "measurement":"Length: 230 cm" ,
-      "category":"Furniture"
+      "categoryId":1
     },
     {
       "id": 3,
@@ -66,7 +66,7 @@
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 809.99,
       "measurement":"Length: 230 cm" ,
-      "category":"seat"
+      "categoryId":2
     },
     {
       "id": 4,
@@ -76,7 +76,7 @@
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 290.99, 
       "measurement":"Length: 230 cm" ,
-      "category":"seat"
+      "categoryId":2
     },
     {
       "id": 5,
@@ -86,7 +86,7 @@
        "description": " Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 340.99,
       "measurement":"Length: 230 cm" ,
-      "category":"seat"
+      "categoryId":2
     },
     {
       "id": 6,
@@ -96,7 +96,17 @@
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 590.99,
       "measurement":"Length: 230 cm" ,
-      "category":"table"
+      "categoryId":3
+    },
+    {
+      "id":7,
+      "title": "Carronade seat",
+      "image1": "/images/product_8_1.jpg",
+      "image2": "/images/product_8_2.jpg",
+      "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
+      "price": 520.99,
+      "measurement":"Length: 330 cm" ,
+      "categoryId":4
     }
   ],
   "comments": [

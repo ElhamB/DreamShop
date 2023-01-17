@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { PriceSlider } from "../PriceSlider/PriceSlider";
 import { filterByValue } from "../../store/Filter";
-
+import Category from "../Category/Category";
 const SearchFilter = () => {
   const dispatch = useDispatch();
 
@@ -61,39 +61,7 @@ const SearchFilter = () => {
           data-bs-parent="#accordionFilter"
         >
           <div className="accordion-body">
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="Bed-check"
-              />
-              <label className="form-check-label" htmlFor="Bed-check">
-                Bed
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="Dining-check"
-              />
-              <label className="form-check-label" htmlFor="Dining-check">
-                Dining
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="Seats-check"
-              />
-              <label className="form-check-label" htmlFor="Seats-check">
-                Seats
-              </label>
-            </div>
+          <Category/>
           </div>
         </div>
       </div>
