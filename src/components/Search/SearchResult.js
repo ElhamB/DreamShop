@@ -5,14 +5,14 @@ import { loadPrdoucts } from "../../store/Filter";
 const SearchResult = () => {
   const productList = useSelector((state) => state.filter);
   console.log(productList);
-  const { products } = productList;
+  const { filteredProducts } = productList;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadPrdoucts());
   }, [dispatch]);
   return (
     <div className="row">
-      {products.map((item) => {
+      {filteredProducts.map((item) => {
         return (
           <div className="col-sm-4" key={item.id}>
             <Product product={item} />

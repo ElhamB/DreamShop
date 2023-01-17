@@ -56,7 +56,7 @@ const Product = ({product}) => {
           <Link to={`/product/${product.id}`}>{product.title}</Link>
         </h3>
         <div className="price-sec">
-          <span className="new-price">$220.00</span>{" "}
+          <span className="new-price">${product.price}</span>{" "}
           <span className="old-price">${product.price}</span>
         </div>
         <button className="btn btn-default" onClick={addToCartHandler}>

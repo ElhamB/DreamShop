@@ -30,7 +30,7 @@ export const sortByPrice=(direction)=>async(dispatch)=>{
 }
 
 //reducers
-export const FilterProductReducer = (state = { appliedFilters: [] },action) => {
+export const FilterProductReducer = (state = { appliedFilters: [],filteredProducts:[] },action) => {
   switch (action.type) {
     case SORT_BY_PRICE:
       let sortByPriceState = Object.assign({}, state);
@@ -51,7 +51,7 @@ export const FilterProductReducer = (state = { appliedFilters: [] },action) => {
           return sortByPriceState;
           case FILTER_BY_PRICE:
             return state;
-            case FILTER_BY_VALUE:
+          case FILTER_BY_VALUE:
                 let newState = Object.assign({}, state);
                 let value = action.payload.value;
                 let filteredValues = state.products.filter(product => {
@@ -77,7 +77,7 @@ export const FilterProductReducer = (state = { appliedFilters: [] },action) => {
                     }
                 }
                 return newState;
-                case LOAD_PRODUCTS:
+          case LOAD_PRODUCTS:
                    // let count = action.payload.count;
                    let count=action.payload.length;
                     let countPerPage = action.payload.countPerPage || 20;
