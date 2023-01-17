@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../Product/Product";
-import { ProductListAction } from "../../store/Product";
+import { loadPrdoucts } from "../../store/Filter";
 const SearchResult = () => {
-  const productList = useSelector((state) => state.productList);
+  const productList = useSelector((state) => state.filter);
+  console.log(productList);
   const { products } = productList;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(ProductListAction());
+    dispatch(loadPrdoucts());
   }, [dispatch]);
   return (
     <div className="row">
