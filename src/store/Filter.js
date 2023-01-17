@@ -13,13 +13,15 @@ const LOAD_EXACT_PAGE = "LOAD_EXACT_PAGE";
 export const FilterProductAction = (payload) => async (dispatch) => {
   try {
     dispatch({ type: FILTER_BY_PRICE, payload });
-    dispatch({ type: FILTER_BY_VALUE, payload });
     dispatch({ type: LOAD_NEW_PAGE, payload });
     dispatch({ type: LOAD_EXACT_PAGE, payload });
   } catch (error) {
     console.log(error);
   }
 };
+export const filterByValue=(value)=>async(dispatch)=>{
+    dispatch({ type: FILTER_BY_VALUE, payload:value });
+}
 export const loadPrdoucts=()=>async(dispatch)=>{
     const { data } = await axios.get("/products");
     dispatch({ type: LOAD_PRODUCTS, payload:data });

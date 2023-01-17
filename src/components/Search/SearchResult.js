@@ -4,7 +4,6 @@ import Product from "../Product/Product";
 import { loadPrdoucts } from "../../store/Filter";
 const SearchResult = () => {
   const productList = useSelector((state) => state.filter);
-  console.log(productList);
   const { filteredProducts } = productList;
   const dispatch = useDispatch();
   useEffect(() => {

@@ -1,8 +1,46 @@
 import React from "react";
-import {PriceSlider} from "../PriceSlider/PriceSlider";
+import { useDispatch } from "react-redux";
+import { PriceSlider } from "../PriceSlider/PriceSlider";
+import { filterByValue } from "../../store/Filter";
+
 const SearchFilter = () => {
+  const dispatch = useDispatch();
+
+  const filterByValueHandler = (e) => {
+    let value = e.target.value;
+    dispatch(filterByValue({value}));
+  };
   return (
     <div className="accordion" id="accordionFilter">
+      <div className="accordion-item">
+        <h2 className="accordion-header" id="valueFilter">
+          <button
+            className="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour"
+          >
+            Filter By name
+          </button>
+        </h2>
+        <div
+          id="collapseFour"
+          className="accordion-collapse collapse show"
+          aria-labelledby="valueFilter"
+          data-bs-parent="#accordionFilter"
+        >
+          <div className="accordion-body">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Filter by name"
+              onChange={(e) => filterByValueHandler(e)}
+            />
+          </div>
+        </div>
+      </div>
       <div className="accordion-item">
         <h2 className="accordion-header" id="CategotyFilter">
           <button
@@ -18,7 +56,7 @@ const SearchFilter = () => {
         </h2>
         <div
           id="collapseOne"
-          className="accordion-collapse collapse show"
+          className="accordion-collapse collapse "
           aria-labelledby="CategotyFilter"
           data-bs-parent="#accordionFilter"
         >
@@ -79,7 +117,7 @@ const SearchFilter = () => {
           data-bs-parent="#accordionFilter"
         >
           <div className="accordion-body">
-           <PriceSlider/>
+            <PriceSlider />
           </div>
         </div>
       </div>

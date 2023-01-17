@@ -4,7 +4,7 @@ import { sortByPrice } from "../../store/Filter";
 
 const SearchSorting = () => {
   const dispatch = useDispatch();
-  const sortBySelect = (e) => {
+  const sortBySelectHandler = (e) => {
     let value = e.target.value;
     let direction = value.endsWith("asc") ? "asc" : "desc";
 
@@ -20,7 +20,7 @@ const SearchSorting = () => {
         sort by
       </label>
       <div className="col-sm-9 col-lg-7">
-        <select className="form-select" onChange={(e) => sortBySelect(e)}>
+        <select className="form-select" onChange={(e) => sortBySelectHandler(e)}>
           <option value="rating">customer rating</option>
           <option value="price_asc">Price - Lowest to Highest</option>
           <option value="price_desc">Price - Highest to Lowest</option>

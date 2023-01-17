@@ -39,6 +39,7 @@ export const PriceSlider = () => {
           defaultValue={[50, 750]}
           min={0}
           max={5000}
+          step={50}
           onChange={onSliderChange}
           value={[min,max]}
         />
