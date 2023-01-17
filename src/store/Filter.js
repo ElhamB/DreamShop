@@ -35,7 +35,7 @@ export const FilterProductReducer = (state = { appliedFilters: [],filteredProduc
     case SORT_BY_PRICE:
       let sortByPriceState = Object.assign({}, state);
       let sortedPriceArr =
-        action.payload === "asc"
+        action.payload.direction === "asc"
           ? sortAsc(state.filteredProducts, "price")
           : sortDesc(state.filteredProducts, "price");
           sortByPriceState.filteredProducts=sortedPriceArr;
@@ -149,22 +149,26 @@ export const FilterProductReducer = (state = { appliedFilters: [],filteredProduc
   }
 };
 
-
-
 function sortAsc(arr, field) {
-  return arr.sort(function (a, b) {
-    if (a[field] > b[field]) return 1;
-    if (a[field] < b[field]) return -1;
-    return 0;
-  });
+    return arr.sort(function (a, b) {
+        if (a[field] > b[field]) return 1;
+
+        if (b[field]> a[field]) return -1;
+
+        return 0;
+    })
 }
+
 function sortDesc(arr, field) {
-  return arr.sort(function (a, b) {
-    if (a[field] > b[field]) return -1;
-    if (a[field] < b[field]) return 1;
-    return 0;
-  });
+    return arr.sort(function (a, b) {
+        if (a[field] > b[field]) return -1;
+
+        if (b[field]> a[field]) return 1;
+
+        return 0;
+    })
 }
+
 function addFilterIfNotExists(filter, appliedFilters) {
     let index = appliedFilters.indexOf(filter);
     if (index===-1) appliedFilters.push(filter);
