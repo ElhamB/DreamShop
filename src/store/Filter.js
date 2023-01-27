@@ -8,7 +8,7 @@ const FILTER_BY_VALUE = "FILTER_BY_VALUE";
 const LOAD_PRODUCTS = "LOAD_PRODUCTS";
 const LOAD_NEW_PAGE = "LOAD_NEW_PAGE";
 const LOAD_EXACT_PAGE = "LOAD_EXACT_PAGE";
-
+const FILTER_BY_CATEGORY="FILTER_BY_CATEGORY";
 //action creators
 export const FilterProductAction = (payload) => async (dispatch) => {
   try {
@@ -19,167 +19,219 @@ export const FilterProductAction = (payload) => async (dispatch) => {
     console.log(error);
   }
 };
-export const filterByValue=(value)=>async(dispatch)=>{
-    dispatch({ type: FILTER_BY_VALUE, payload:value });
-}
-export const loadPrdoucts=()=>async(dispatch)=>{
-    const { data } = await axios.get("/products");
-    dispatch({ type: LOAD_PRODUCTS, payload:data });
-}
+export const filterByCategory = (value) => async (dispatch) => {
+    dispatch({ type: FILTER_BY_CATEGORY, payload:value });
+};
+export const filterByValue = (value) => async (dispatch) => {
+  dispatch({ type: FILTER_BY_VALUE, payload: value });
+};
+export const loadPrdoucts = () => async (dispatch) => {
+  const { data } = await axios.get("/products");
+  dispatch({ type: LOAD_PRODUCTS, payload: data });
+};
 
-export const sortByPrice=(direction)=>async(dispatch)=>{
-    dispatch({ type: SORT_BY_PRICE, payload:direction });
-}
+export const sortByPrice = (direction) => async (dispatch) => {
+  dispatch({ type: SORT_BY_PRICE, payload: direction });
+};
 
 //reducers
-export const FilterProductReducer = (state = { appliedFilters: [],filteredProducts:[] },action) => {
+export const FilterProductReducer = (
+  state = { appliedFilters: [], filteredProducts: [] }, action) => {
   switch (action.type) {
+    case FILTER_BY_CATEGORY:
+        let newStateCategory = Object.assign({}, state);
+        let valueCategory = action.payload.value;
+        console.log("valueCategory:"+valueCategory);
+        let filteredCategoryValues = state.products.filter((product) => {
+          return product.categoryId===valueCategory
+        });
+        console.log("filteredCategoryValues:"+filteredCategoryValues)
+        let appliedCatFilters = state.appliedFilters;
+  
+        if (valueCategory) {
+            appliedCatFilters = addFilterIfNotExists(FILTER_BY_CATEGORY, appliedCatFilters);
+  
+          newStateCategory.filteredProducts = filteredCategoryValues;
+          newStateCategory.filteredCount = newStateCategory.filteredProducts.length;
+          newStateCategory.filteredPages = Math.ceil(
+            newStateCategory.filteredCount / newStateCategory.countPerPage
+          );
+        } else {
+            appliedCatFilters = removeFilter(FILTER_BY_CATEGORY, appliedCatFilters);
+  
+          if (appliedCatFilters.length === 0) {
+            newStateCategory.filteredProducts = newStateCategory.products;
+            newStateCategory.filteredCount = newStateCategory.filteredProducts.length;
+            newStateCategory.filteredPages = Math.ceil(
+                newStateCategory.filteredCount / newStateCategory.countPerPage
+            );
+          }
+        }
+        return newStateCategory;
+        
     case SORT_BY_PRICE:
       let sortByPriceState = Object.assign({}, state);
       let sortedPriceArr =
         action.payload.direction === "asc"
           ? sortAsc(state.filteredProducts, "price")
           : sortDesc(state.filteredProducts, "price");
-          sortByPriceState.filteredProducts=sortedPriceArr;
-          sortByPriceState.appliedFilters = addFilterIfNotExists(
-            SORT_BY_PRICE,
-            sortByPriceState.appliedFilters
+      sortByPriceState.filteredProducts = sortedPriceArr;
+      sortByPriceState.appliedFilters = addFilterIfNotExists(
+        SORT_BY_PRICE,
+        sortByPriceState.appliedFilters
+      );
+      sortByPriceState.appliedFilters = removeFilter(
+        SORT_BY_PRICE,
+        sortByPriceState.appliedFilters
+      );
+
+      return sortByPriceState;
+    case FILTER_BY_PRICE:
+      return state;
+    case FILTER_BY_VALUE:
+      let newState = Object.assign({}, state);
+      let value = action.payload.value;
+      let filteredValues = state.products.filter((product) => {
+        return product.title.toLowerCase().includes(value);
+      });
+
+      let appliedFilters = state.appliedFilters;
+
+      if (value) {
+        appliedFilters = addFilterIfNotExists(FILTER_BY_VALUE, appliedFilters);
+
+        newState.filteredProducts = filteredValues;
+        newState.filteredCount = newState.filteredProducts.length;
+        newState.filteredPages = Math.ceil(
+          newState.filteredCount / newState.countPerPage
+        );
+      } else {
+        appliedFilters = removeFilter(FILTER_BY_VALUE, appliedFilters);
+
+        if (appliedFilters.length === 0) {
+          newState.filteredProducts = newState.products;
+          newState.filteredCount = newState.filteredProducts.length;
+          newState.filteredPages = Math.ceil(
+            newState.filteredCount / newState.countPerPage
           );
-          sortByPriceState.appliedFilters = removeFilter(
-            SORT_BY_PRICE,
-            sortByPriceState.appliedFilters
-          );
-          
-          return sortByPriceState;
-          case FILTER_BY_PRICE:
-            return state;
-          case FILTER_BY_VALUE:
-                let newState = Object.assign({}, state);
-                let value = action.payload.value;
-                let filteredValues = state.products.filter(product => {
-                    return product.title.toLowerCase().includes(value)
-                });
-    
-                let appliedFilters = state.appliedFilters;
-    
-                if (value) {
-                    appliedFilters = addFilterIfNotExists(FILTER_BY_VALUE, appliedFilters);
-    
-                    newState.filteredProducts = filteredValues;
-                    newState.filteredCount = newState.filteredProducts.length;
-                    newState.filteredPages = Math.ceil(newState.filteredCount / newState.countPerPage);
-    
-                } else {
-                    appliedFilters = removeFilter(FILTER_BY_VALUE, appliedFilters);
-    
-                    if (appliedFilters.length === 0) {
-                        newState.filteredProducts = newState.products;
-                        newState.filteredCount = newState.filteredProducts.length;
-                        newState.filteredPages = Math.ceil(newState.filteredCount / newState.countPerPage);
-                    }
-                }
-                return newState;
-          case LOAD_PRODUCTS:
-                   // let count = action.payload.count;
-                   let count=action.payload.length;
-                    let countPerPage = action.payload.countPerPage || 20;
-        
-                    //round up
-                    let totalPages = Math.ceil(count / countPerPage);
-        
-                    // let products = generate(count);
-                    let products =action.payload;
-                    return {
-                        ...state,
-                        products,
-                        filteredProducts: products.slice(0, countPerPage),
-                        currentCount: countPerPage,
-                        countPerPage,
-                        totalCount: count,
-                        currentPage: 1,
-                        totalPages: totalPages,
-                        filteredPages: totalPages
-                    };
-                case LOAD_NEW_PAGE:
-                    //Clone the previous state
-                    let loadNewPageState = Object.assign({}, state);
-                    //How many pages should be added. Will always be 1 or -1
-                    let addPages = action.payload.page;
-                    //add it to the current
-                    loadNewPageState.currentPage += addPages;
-        
-                    let perPage = loadNewPageState.countPerPage; //20 by default
-        
-                    let nextProducts;
-                    if (addPages === 1){
-                        //Moving from page 1 to 2 will cause ‘upperCount’ to be 40
-                        let upperCount = loadNewPageState.currentCount + perPage;
-                        let lowerCount = loadNewPageState.currentCount; //This hasn’t been changed. It will remain 20.
-        
-                        loadNewPageState.currentCount += loadNewPageState.countPerPage;
-                        nextProducts = loadNewPageState.products.slice(lowerCount, upperCount);
-                    }
-        
-                    if (addPages ===-1){
-                        let upperCount = loadNewPageState.currentCount; //40
-                        let lowerCount = loadNewPageState.currentCount - perPage; //20
-        
-                        loadNewPageState.currentCount -= loadNewPageState.countPerPage;
-                        nextProducts = loadNewPageState.products.slice(lowerCount - perPage, upperCount - perPage);
-                    }
-        
-                    loadNewPageState.filteredProducts = nextProducts;
-                    // Don't use window.history.pushState() here in production
-                    // It's better to keep redirections predictable
-                    window.history.pushState({page: 1}, "title 1", `?page=${loadNewPageState.currentPage}`);
-                    return loadNewPageState;
-                case LOAD_EXACT_PAGE:
-                    const exactPageState = Object.assign({}, state);
-                    const exactPage = action.payload.page;
-                    let upperCountExact = exactPageState.countPerPage * exactPage;
-                    let lowerCountExact = upperCountExact - exactPageState.countPerPage;
-        
-                    let exactProducts = exactPageState.products.slice(lowerCountExact, upperCountExact);
-                    exactPageState.filteredProducts = exactProducts;
-                    exactPageState.currentCount = upperCountExact;
-                    exactPageState.currentPage = exactPage;
-                    window.history.pushState({page: 1}, "title 1", `?page=${exactPageState.currentPage}`);
-        
-                    return exactPageState;
+        }
+      }
+      return newState;
+    case LOAD_PRODUCTS:
+      // let count = action.payload.count;
+      let count = action.payload.length;
+      let countPerPage = action.payload.countPerPage || 20;
+
+      //round up
+      let totalPages = Math.ceil(count / countPerPage);
+
+      // let products = generate(count);
+      let products = action.payload;
+      return {
+        ...state,
+        products,
+        filteredProducts: products.slice(0, countPerPage),
+        currentCount: countPerPage,
+        countPerPage,
+        totalCount: count,
+        currentPage: 1,
+        totalPages: totalPages,
+        filteredPages: totalPages,
+      };
+    case LOAD_NEW_PAGE:
+      //Clone the previous state
+      let loadNewPageState = Object.assign({}, state);
+      //How many pages should be added. Will always be 1 or -1
+      let addPages = action.payload.page;
+      //add it to the current
+      loadNewPageState.currentPage += addPages;
+
+      let perPage = loadNewPageState.countPerPage; //20 by default
+
+      let nextProducts;
+      if (addPages === 1) {
+        //Moving from page 1 to 2 will cause ‘upperCount’ to be 40
+        let upperCount = loadNewPageState.currentCount + perPage;
+        let lowerCount = loadNewPageState.currentCount; //This hasn’t been changed. It will remain 20.
+
+        loadNewPageState.currentCount += loadNewPageState.countPerPage;
+        nextProducts = loadNewPageState.products.slice(lowerCount, upperCount);
+      }
+
+      if (addPages === -1) {
+        let upperCount = loadNewPageState.currentCount; //40
+        let lowerCount = loadNewPageState.currentCount - perPage; //20
+
+        loadNewPageState.currentCount -= loadNewPageState.countPerPage;
+        nextProducts = loadNewPageState.products.slice(
+          lowerCount - perPage,
+          upperCount - perPage
+        );
+      }
+
+      loadNewPageState.filteredProducts = nextProducts;
+      // Don't use window.history.pushState() here in production
+      // It's better to keep redirections predictable
+      window.history.pushState(
+        { page: 1 },
+        "title 1",
+        `?page=${loadNewPageState.currentPage}`
+      );
+      return loadNewPageState;
+    case LOAD_EXACT_PAGE:
+      const exactPageState = Object.assign({}, state);
+      const exactPage = action.payload.page;
+      let upperCountExact = exactPageState.countPerPage * exactPage;
+      let lowerCountExact = upperCountExact - exactPageState.countPerPage;
+
+      let exactProducts = exactPageState.products.slice(
+        lowerCountExact,
+        upperCountExact
+      );
+      exactPageState.filteredProducts = exactProducts;
+      exactPageState.currentCount = upperCountExact;
+      exactPageState.currentPage = exactPage;
+      window.history.pushState(
+        { page: 1 },
+        "title 1",
+        `?page=${exactPageState.currentPage}`
+      );
+
+      return exactPageState;
     default:
       return state;
   }
 };
 
 function sortAsc(arr, field) {
-    return arr.sort(function (a, b) {
-        if (a[field] > b[field]) return 1;
+  return arr.sort(function (a, b) {
+    if (a[field] > b[field]) return 1;
 
-        if (b[field]> a[field]) return -1;
+    if (b[field] > a[field]) return -1;
 
-        return 0;
-    })
+    return 0;
+  });
 }
 
 function sortDesc(arr, field) {
-    return arr.sort(function (a, b) {
-        if (a[field] > b[field]) return -1;
+  return arr.sort(function (a, b) {
+    if (a[field] > b[field]) return -1;
 
-        if (b[field]> a[field]) return 1;
+    if (b[field] > a[field]) return 1;
 
-        return 0;
-    })
+    return 0;
+  });
 }
 
 function addFilterIfNotExists(filter, appliedFilters) {
-    let index = appliedFilters.indexOf(filter);
-    if (index===-1) appliedFilters.push(filter);
+  let index = appliedFilters.indexOf(filter);
+  if (index === -1) appliedFilters.push(filter);
 
-    return appliedFilters;
+  return appliedFilters;
 }
 
 function removeFilter(filter, appliedFilters) {
-    let index = appliedFilters.indexOf(filter);
-    appliedFilters.splice(index, 1);
-    return appliedFilters;
+  let index = appliedFilters.indexOf(filter);
+  appliedFilters.splice(index, 1);
+  return appliedFilters;
 }

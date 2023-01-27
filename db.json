@@ -2,23 +2,16 @@
   "slides":[
  {
   "id": 1,
-  "title": "digitalBT",
-    "description": "digitalBD",
-    "image": "url('/images/slider-img/digital-banner.webp')",
+  "title": "A variety of minimalist furniture",
+    "description": "choose from the largest furniture sales site of the highest quality",
+    "image": "images/p6.png",
     "url": "/"
   },
   {
     "id": 2,
-    "title": "stationeryBT",
-    "description": "stationeryBD",
-    "image": "url('/images/slider-img/stationery-banner.webp')",
-    "url": "/"
-  },
-  {
-    "id": 3,
-    "title": "toyBT",
-    "description": "toyBD",
-    "image1": "url('/images/slider-img/toy-banner.webp')",
+    "title": "The best furniture",
+    "description": "choose from the largest furniture sales site of the highest quality",
+    "image": "images/p6.png",
     "url": "/"
   }
   ],

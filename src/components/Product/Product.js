@@ -7,7 +7,6 @@ import "./Product.css";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
-
   const categoryTitle = useSelector(
     (state) => state.categoryList.categories?.find?.((item) => item.id === product.categoryId)?.title
   );
