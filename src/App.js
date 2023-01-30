@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CartToggleAction } from "./store/UI";
 import CartModal from "./components/Cart/CartModal";
-import { HomePage, NotFoundPage, ProductPage,CheckOutPage,ContactPage,SearchPage,SignUpPage,PaymentPage } from "./pages";
+import { HomePage, NotFoundPage, ProductPage,CheckOutPage,ContactPage,SearchPage,SignUpPage,PaymentPage,SignInPage } from "./pages";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
@@ -35,6 +35,7 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
         </Route>
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/signin" element={<SignInPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         {showCart && <CartModal onClose={hideCartModalHandler} />}
