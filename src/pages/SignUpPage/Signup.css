@@ -1,0 +1,275 @@
+.logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom:20px;
+ }
+ 
+    .logo img {
+       height: 40px;
+    }
+ 
+    .logo span {
+       color: var(--blue-color);
+       font-size: 18px;
+       margin-left: 5px;
+    }
+ .btn-back {
+    position: absolute;
+    left: 24px;
+    top: 23px;
+ }
+ 
+ 
+    .wrapper-login {
+       position: relative;
+       width: 100%;
+       height: 100%;
+    }
+ .col-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+    width: 40vw;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 30px 40px;
+    text-align: center;
+    background-color: #F8F9FA;
+    flex-direction: column;
+ }
+ .col-right {
+    margin-left: 40vw;
+    min-height: 100%;
+    position: relative;
+ }
+ .colorGray{
+    color:#777;
+ }
+ #carouselSlide {
+    position: relative;
+ }
+ .carousel-caption{
+    color:#212121 ;
+    position:relative;
+    right:0;
+    left:0;
+ }
+    .carousel-caption h5 {
+       margin-top: 15px;
+       font-size: 23px;
+       margin-bottom:25px;
+    }
+    .carousel-caption p{
+        font-size:16px;
+        color:#777;
+        line-height:25px;
+    }
+ .carousel-indicators li{
+   background-color: var(--blue-color);
+ }
+ .title-page{
+    margin-top:20px;
+    margin-bottom:37px;
+    font-size:26px;
+ }
+ .signup-form {
+    padding: 1rem 4rem;
+    height: 100%;
+ }
+ .login-form, .signup-message {
+    width: 342px;
+    max-width: 100%;
+    margin: 30px auto 20px;
+ }
+ .signup-message {
+    width: 380px;
+    max-width: 100%;
+ }
+    .signup-message .title-page {
+       margin-top: 125px;
+    }
+ .message-signup {
+    color: #3F4254;
+    font-size: 17px;
+    line-height: 32px;
+ }
+ .seepanel {
+    margin-right: 10px;
+    border: 1px solid var(--blue-color);
+    color: var(--blue-color);
+    font-size: 15px;
+    padding: 7px 25px;
+    transition: 0.5s;
+    height: 40px;
+ }
+ .passToggle, .passToggle2 {
+    position: absolute;
+    left: 24px;
+    top: 10px;
+    font-size: 17px;
+    cursor: pointer;
+ }
+ .col-left h1 {
+    font-size: 1.66rem;
+ }
+    .col-left h1 span {
+       color: #ffd500;
+       font-size: 43px;
+       position: relative;
+       top: 8px;
+    }
+ .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: pointer;
+ }
+ .hide{
+    display:none !important;
+ }
+ .form-control{
+    font-size:14px;
+ }
+ .file-preview-frame, .file-preview-frame img {
+    height: 60px !important;
+ }
+ .desc-forgot {
+    margin-bottom: 2rem;
+    line-height: 25px;
+ }
+ 
+ .sendCode {
+    background: none;
+    color: var(--blue-color);
+    border: none;
+    padding:0;
+ }
+
+
+ .select2-container--default .select2-selection--single {
+    border-radius: 3px;
+ }
+ .select2-container .select2-selection--single{
+    height:38px;
+ }
+
+ .passToggle, .passToggle2 {
+    position: absolute;
+    left: 24px;
+    top: 10px;
+    font-size: 17px;
+    cursor: pointer;
+ }
+ 
+
+ .border-top-gray {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+ }
+ .loginContainer {
+    width: 340px;
+    margin: 100px auto;
+    max-width:100%;
+ }
+ .mr5{
+    margin-right:5px;
+ }
+ 
+ .border-bottom-gray{
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+ }
+ 
+ @media screen and (min-width: 100px) and (max-width:991.98px) {
+    .col-right{
+       margin-left:0;
+    }
+    .btn-all {
+       margin-top: 10px;
+    }
+    .col-left, .circle, .halfcircle {
+       display: none !important;
+    }
+    .logo {
+       position: relative;
+       left: initial;
+       margin: 10px 0;
+    }
+    .title-page {
+       font-size: 25px;
+       margin-top: 15px;
+    }
+    .signup-form {
+       padding: 1.2rem 4rem;
+       height: auto;
+    }
+    .loginContainer {
+       margin: 10px auto;
+    }
+    .login-form{
+       margin:0 auto;
+    }
+    .title-contact {
+       font-size: 25px;
+    }
+ }
+ @media screen and (min-width: 100px) and (max-width:767.98px) {
+   
+    .title-page {
+       font-size: 22px;
+       margin-top: 18px;
+    }
+    .signup-message .title-page {
+       margin-top: 18px;
+    }
+ }
+ @media screen and (min-width: 100px) and (max-width:576.98px) {
+    .title-page, .title-contact {
+       font-size: 18px;
+       margin-top: 0;
+    }
+  
+       .mt-xs-3{
+       margin-top:15px;
+    }
+    .signup-form, .footer {
+       padding: 1.2rem 2rem;
+       height: auto;
+    }
+    .message-signup {
+       font-size: 16px;
+    }
+    .acc-title {
+       font-size:14px;
+    }
+    .faq-category {
+       font-size: 18px;
+    }
+    }
+ @media screen and (min-width: 100px) and (max-width:450.98px){
+    .title-page {
+       font-size: 20px;
+       margin-top: 10px;
+    }
+    .signup-form, .footer {
+       padding: 1.2rem 1.2rem;
+    }
+    .padright0xs{
+       padding-right:0 !important; 
+    }
+ }
+ @media screen and (min-width: 100px) and (max-width:380.98px) {
+    .btnSignupArtist {
+       padding: 7px 30px;
+    }
+    .seepanel {
+       padding: 7px 15px;
+    }
+ 
+ 
+    }                       
+ 

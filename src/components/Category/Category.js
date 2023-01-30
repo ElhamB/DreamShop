@@ -25,10 +25,11 @@ const Category = () => {
               className="form-check-input"
               type="checkbox"
               value={category.id}
-              id={`cat-${category.id}`}
+              id={'cat-'+category.id}
               onChange={(e) => categoryFilterhandler(e)}
+             
             />
-            <label className="form-check-label" htmlFor={`cat-${category.id}`}>
+            <label className="form-check-label" htmlFor={'cat-'+category.id}>
               {category.title}
             </label>
           </div>

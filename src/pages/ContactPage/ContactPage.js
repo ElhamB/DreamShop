@@ -1,5 +1,5 @@
-import ContactForm from '../components/Contact/ContactForm';
-import ContactInfo from '../components/Contact/ContactInfo';
+import ContactForm from '../../components/Contact/ContactForm';
+import ContactInfo from '../../components/Contact/ContactInfo';
 import classes from './ContactPage.module.css'
 export const ContactPage = () => {
     return (

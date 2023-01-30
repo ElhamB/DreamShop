@@ -5,6 +5,8 @@ import UIReducer from "./UI";
 import { ProductDetailReducer,ProductListReducer } from "./Product";
 import { FilterProductReducer } from "./Filter";
 import { slideshowDetailReducer,slideshowListReducer } from "./SlideShow";
+import { authReducer } from "./Auth";
+import { paymentFormReducer } from "./Payment";
  export default combineReducers({
     productList: ProductListReducer,
     productDetails: ProductDetailReducer,
@@ -13,5 +15,7 @@ import { slideshowDetailReducer,slideshowListReducer } from "./SlideShow";
     ui:UIReducer,
     filter:FilterProductReducer,
     slideList:slideshowListReducer,
-    slideDetails:slideshowDetailReducer
+    slideDetails:slideshowDetailReducer,
+    auth:authReducer,
+    payment:paymentFormReducer
   });

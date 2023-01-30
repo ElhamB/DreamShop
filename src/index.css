@@ -23,6 +23,9 @@ button:focus, input, button, input:focus {
 .modal{
    z-index: 100;
 }
+.pe-6{
+   padding-right: 15%;
+}
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,

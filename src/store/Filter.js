@@ -39,13 +39,13 @@ export const FilterProductReducer = (
   state = { appliedFilters: [], filteredProducts: [] }, action) => {
   switch (action.type) {
     case FILTER_BY_CATEGORY:
-        let newStateCategory = Object.assign({}, state);
+        let newStateCategory = Object.assign({}, state); //{ ...state }
         let valueCategory = action.payload.value;
         console.log("valueCategory:"+valueCategory);
         let filteredCategoryValues = state.products.filter((product) => {
-          return product.categoryId===valueCategory
+          return product.categoryId === valueCategory
         });
-        console.log("filteredCategoryValues:"+filteredCategoryValues)
+        console.log("apply:"+state.appliedFilters)
         let appliedCatFilters = state.appliedFilters;
   
         if (valueCategory) {

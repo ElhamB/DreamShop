@@ -1,20 +1,31 @@
 import React from "react";
 import CounterButton from "../UI/CounterButton";
+import { useLocation } from "react-router-dom";
 import { removeFromCart } from "../../store/Cart";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const removeFromCartHandler = (id) => {
-    dispatch(removeFromCart(id))
-  }
+    dispatch(removeFromCart(id));
+  };
+
+  const location = useLocation();
+  const isPaymentPage = location.pathname.includes("payment");
+
   return (
     <li>
       <div className="pic">
-        <span className="close-basket" onClick={() => removeFromCartHandler(cartItem.id)}>
-          <i className="fa fa-close"></i>
-        </span>
+        {!isPaymentPage && (
+          <span
+            className="close-basket"
+            onClick={() => removeFromCartHandler(cartItem.id)}
+          >
+            <i className="fa fa-close"></i>
+          </span>
+        )}
+
         <Link to={`/product/${cartItem.id}`} title="">
           <img src={cartItem.image1} alt={cartItem.title} />
         </Link>
@@ -22,15 +33,17 @@ const CartItem = ({ cartItem }) => {
       <div className="left">
         <span>{cartItem.title}</span>
         <div className="price-count">
-            <span className="price">${cartItem.price}</span>
+          <span className="price">${cartItem.price}</span>
         </div>
         <div className="count-basket">
-            <CounterButton item={{
-              id: cartItem.id
-            }} />
-          </div>
+          <CounterButton
+            item={{
+              id: cartItem.id,
+            }}
+          />
+        </div>
       </div>
     </li>
-  )
-}
-export default CartItem
+  );
+};
+export default CartItem;
