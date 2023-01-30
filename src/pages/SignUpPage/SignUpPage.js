@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Helmet ,HelmetProvider} from 'react-helmet-async'
-
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import Signup from "../../components/Auth/Signup";
@@ -16,20 +15,17 @@ export const SignUpPage = () => {
         </HelmetProvider>
       <div className="wrapper-login">
         <header className="d-xl-none d-lg-none">
-          <div className="container-fluid">
+          <div className="container-fluid container-md">
             <div className="row">
               <div className="col-sm-5 col-5">
-                <Link to="index.html" className="logo">
-                  <img src="Images/logo.png" alt="" />
+                <Link to="/" className="logo">
+                  <img src="Images/logo.png" alt="dream shop" />
                 </Link>
               </div>
-              <div className="text-left col-sm-7 col-7 padright0xs">
-                <Link to="index.html">
-                  <span className="txt"> </span>
-                  <span className="round">
-                    <i className="fa fa-chevron-left"></i>
-                  </span>
-                </Link>
+              <div className="col-sm-7 col-7 mt-3">
+              <p className="text-end">
+                Already a member? <Link to="/session/new">Sign In</Link>
+              </p>
               </div>
             </div>
           </div>
@@ -37,7 +33,7 @@ export const SignUpPage = () => {
         <div className="col-right">
           <div className="signup-form">
             <div className="d-none d-lg-block">
-              <p className="auth-link">
+              <p className="text-end">
                 Already a member? <Link to="/session/new">Sign In</Link>
               </p>
             </div>
@@ -45,8 +41,8 @@ export const SignUpPage = () => {
           </div>
         </div>
         <div className="col-left">
-          <div className="btn-back">
-            <Link to="index.html" className="logo">
+          <div className="logo-signup">
+            <Link to="/" className="logo">
               <img src="Images/logo.png" alt="" />
             </Link>
           </div>

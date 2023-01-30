@@ -8,17 +8,10 @@
        height: 40px;
     }
  
-    .logo span {
-       color: var(--blue-color);
-       font-size: 18px;
-       margin-left: 5px;
-    }
- .btn-back {
-    position: absolute;
-    left: 24px;
-    top: 23px;
+
+ .logo-signup {
+text-align: left;
  }
- 
  
     .wrapper-login {
        position: relative;
@@ -68,9 +61,7 @@
         color:#777;
         line-height:25px;
     }
- .carousel-indicators li{
-   background-color: var(--blue-color);
- }
+
  .title-page{
     margin-top:20px;
     margin-bottom:37px;
@@ -80,36 +71,20 @@
     padding: 1rem 4rem;
     height: 100%;
  }
- .login-form, .signup-message {
+ .login-form {
     width: 342px;
     max-width: 100%;
-    margin: 30px auto 20px;
+    margin: 80px auto 20px;
  }
- .signup-message {
-    width: 380px;
-    max-width: 100%;
- }
-    .signup-message .title-page {
-       margin-top: 125px;
-    }
- .message-signup {
-    color: #3F4254;
-    font-size: 17px;
-    line-height: 32px;
- }
- .seepanel {
-    margin-right: 10px;
-    border: 1px solid var(--blue-color);
-    color: var(--blue-color);
-    font-size: 15px;
-    padding: 7px 25px;
-    transition: 0.5s;
-    height: 40px;
- }
- .passToggle, .passToggle2 {
+
+.pos-relative{
+   position: relative;
+}
+ 
+ .passToggle {
     position: absolute;
-    left: 24px;
-    top: 10px;
+    right: 24px;
+    top: 40px;
     font-size: 17px;
     cursor: pointer;
  }
@@ -134,37 +109,6 @@
  .form-control{
     font-size:14px;
  }
- .file-preview-frame, .file-preview-frame img {
-    height: 60px !important;
- }
- .desc-forgot {
-    margin-bottom: 2rem;
-    line-height: 25px;
- }
- 
- .sendCode {
-    background: none;
-    color: var(--blue-color);
-    border: none;
-    padding:0;
- }
-
-
- .select2-container--default .select2-selection--single {
-    border-radius: 3px;
- }
- .select2-container .select2-selection--single{
-    height:38px;
- }
-
- .passToggle, .passToggle2 {
-    position: absolute;
-    left: 24px;
-    top: 10px;
-    font-size: 17px;
-    cursor: pointer;
- }
- 
 
  .border-top-gray {
     border-top: 1px solid #eee;
@@ -175,10 +119,7 @@
     margin: 100px auto;
     max-width:100%;
  }
- .mr5{
-    margin-right:5px;
- }
- 
+
  .border-bottom-gray{
     border-bottom:1px solid #ddd;
     padding-bottom:10px;
@@ -223,53 +164,31 @@
        font-size: 22px;
        margin-top: 18px;
     }
-    .signup-message .title-page {
-       margin-top: 18px;
-    }
+    
  }
  @media screen and (min-width: 100px) and (max-width:576.98px) {
-    .title-page, .title-contact {
+    .title-page {
        font-size: 18px;
        margin-top: 0;
     }
   
-       .mt-xs-3{
-       margin-top:15px;
-    }
-    .signup-form, .footer {
+    .signup-form{
        padding: 1.2rem 2rem;
        height: auto;
     }
-    .message-signup {
-       font-size: 16px;
-    }
-    .acc-title {
-       font-size:14px;
-    }
-    .faq-category {
-       font-size: 18px;
-    }
+ 
     }
  @media screen and (min-width: 100px) and (max-width:450.98px){
     .title-page {
        font-size: 20px;
        margin-top: 10px;
     }
-    .signup-form, .footer {
+    .signup-form {
        padding: 1.2rem 1.2rem;
     }
     .padright0xs{
        padding-right:0 !important; 
     }
  }
- @media screen and (min-width: 100px) and (max-width:380.98px) {
-    .btnSignupArtist {
-       padding: 7px 30px;
-    }
-    .seepanel {
-       padding: 7px 15px;
-    }
- 
- 
-    }                       
+                     
  
