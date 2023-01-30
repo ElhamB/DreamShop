@@ -11,13 +11,13 @@ export const SignInPage = () => {
         <div className="wrapper-login">
           <header className="d-xl-none d-lg-none">
             <div className="container-fluid container-md">
-              <div className="row">
+              <div className="row mt-3">
                 <div className="col-sm-5 col-5">
                   <Link to="/" className="logo">
                     <img src="Images/logo.png" alt="dream shop" />
                   </Link>
                 </div>
-                <div className="col-sm-7 col-7 mt-3">
+                <div className="col-sm-7 col-7 ">
                 <p className="text-end">
                   Not a member? <Link to="/session/new">Sign up now</Link>
                 </p>
@@ -36,13 +36,13 @@ export const SignInPage = () => {
             </div>
           </div>
           <div className="col-left">
-            <div className="logo-signup">
+            <div className="logo-signup mt-3">
               <Link to="/" className="logo">
                 <img src="Images/logo.png" alt="" />
               </Link>
             </div>
             <figure>
-            <img src="Images/sign1.png" alt="" />
+            <img src="Images/sign1.png" className="mb-3" alt="" />
                 <figcaption>Have a great experience</figcaption>
             </figure>
           </div>
