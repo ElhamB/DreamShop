@@ -7,6 +7,7 @@ import Loading from "../../components/UI/Loading";
 import CommentList from "../../components/Comment/CommentList";
 import CounterButton from "../../components/UI/CounterButton";
 import "./ProductPage.css";
+import Title from "../../components/Title/Title";
 export const ProductPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ export const ProductPage = () => {
   };
   return (
     <Fragment>
+      <Title title={product.title} />
+
       {loading && <Loading />}
       {
         !loading && (

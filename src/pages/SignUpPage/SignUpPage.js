@@ -1,18 +1,14 @@
 import React, { Fragment } from "react";
-import { Helmet ,HelmetProvider} from 'react-helmet-async'
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import Signup from "../../components/Auth/Signup";
+import Title from "../../components/Title/Title";
 
 export const SignUpPage = () => {
   const title = "Sign up";
   return (
     <Fragment>
-      <HelmetProvider>
-            <Helmet>
-                <title>{title}</title>
-            </Helmet>
-        </HelmetProvider>
+      <Title title={title}/>
       <div className="wrapper-login">
         <header className="d-xl-none d-lg-none">
           <div className="container-fluid container-md">

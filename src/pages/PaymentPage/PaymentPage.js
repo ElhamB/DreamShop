@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import OrderList from "../../components/Order/OrderList";
 import PaymentForm from "../../components/Payment/PaymentForm";
+import Title from "../../components/Title/Title";
 
 export const PaymentPage = () => {
+  const title = "Payment";
 
   return (
     <Fragment>
-
+      <Title title={title}/>
       <div className="container my-5">
         <div className="row ">
           <div className="col-md-8 pe-6">

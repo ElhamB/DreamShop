@@ -6,7 +6,6 @@ import CartModal from "./components/Cart/CartModal";
 import { HomePage, NotFoundPage, ProductPage,CheckOutPage,ContactPage,SearchPage,SignUpPage,PaymentPage } from "./pages";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-
 import "./App.css";
 
 const AppLayout = () => (
