@@ -1,14 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utilities";
 import Button from "../UI/Button";
 import CartItem from "./CartItem";
 import "./CartBox.css";
-const CartBox = ({ onCheckout }) => {
-
+const CartBox = () => {
+const[show,setShow]=useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  useEffect(()=>{
+    const isCheckoutPage = location.pathname.includes("checkout");
+    if (isCheckoutPage) {
+      setShow(false);
+    } else {
+      setShow(true); 
+    }
+   },[location.pathname])
   const cartItems = useSelector((state) => state.cart.cartItems);
   //calculate total sum
   let totalSum = 0;
@@ -22,13 +30,9 @@ const CartBox = ({ onCheckout }) => {
   const checkoutDisabled =cartItems.length === 0;
 
   const onClickHandler = () => {
-    const isCheckoutPage = location.pathname.includes("checkout");
-    if (isCheckoutPage) {
-      onCheckout();
-    } else {
-      navigate("/checkout");
-    }
+    navigate("/checkout");
   };
+
   return (
     <Fragment>
       <div className="cart-box">
@@ -60,9 +64,9 @@ const CartBox = ({ onCheckout }) => {
           <span className="price-title">Total</span>
           <span className="price-total">{formatCurrency(totalSum + 50)}</span>
         </div>
-        <Button disabled={checkoutDisabled} onClick={onClickHandler}>
+      {show && <Button disabled={checkoutDisabled} onClick={onClickHandler}>
           Check out
-        </Button>
+        </Button> }  
       </div>
     </Fragment>
   );

@@ -10,7 +10,7 @@
    transition: all 0.4s ease 0s;
    width: 350px;
    max-width: 100%;
-   z-index: 221;
+   z-index: 1001;
 }
 
 .closeBasketList {
