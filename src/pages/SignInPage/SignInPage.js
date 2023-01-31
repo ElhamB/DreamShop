@@ -19,7 +19,7 @@ export const SignInPage = () => {
                 </div>
                 <div className="col-sm-7 col-7 ">
                 <p className="text-end">
-                  Not a member? <Link to="/session/new">Sign up now</Link>
+                  Not a member? <Link to="/signup">Sign up now</Link>
                 </p>
                 </div>
               </div>
@@ -29,7 +29,7 @@ export const SignInPage = () => {
             <div className="signup-form">
               <div className="d-none d-lg-block">
                 <p className="text-end">
-                Not a member? <Link to="/session/new">Sign up now</Link>
+                Not a member? <Link to="/signup">Sign up now</Link>
                 </p>
               </div>
               <SignIn />

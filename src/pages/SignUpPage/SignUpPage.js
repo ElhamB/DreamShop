@@ -20,7 +20,7 @@ export const SignUpPage = () => {
               </div>
               <div className="col-sm-7 col-7 ">
               <p className="text-end">
-                Already a member? <Link to="/session/new">Sign In</Link>
+                Already a member? <Link to="/signin">Sign In</Link>
               </p>
               </div>
             </div>
@@ -30,7 +30,7 @@ export const SignUpPage = () => {
           <div className="signup-form">
             <div className="d-none d-lg-block">
               <p className="text-end">
-                Already a member? <Link to="/session/new">Sign In</Link>
+                Already a member? <Link to="/signin">Sign In</Link>
               </p>
             </div>
             <Signup />
