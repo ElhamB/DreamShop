@@ -1,13 +1,23 @@
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addCartInfo } from "../../store/Payment";
+import { addCardInfo } from "../../store/Payment";
+import {makeOrder} from '../../store/Order';
 import Button from "../UI/Button";
 import * as Yup from "yup";
 const PaymentForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+const shippingInfo=useSelector(state=>state.payment.shippingInfo);
+const cartItems=useSelector(state=>state.cart.cartItems);
+  //calculate total sum
+  let totalSum = 0;
+  let subTotal = [];
+  cartItems.map((item) => {
+    return subTotal.push(item.qty * item.price);
+  });
+  totalSum = subTotal.reduce((acc, val) => acc + val, 0);
 
   // this regex that matches Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards:
   // ^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$
@@ -26,8 +36,18 @@ const PaymentForm = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      dispatch(addCartInfo(values));
-      navigate("/Thankyou");
+    //  dispatch(addCardInfo(values));
+      dispatch(makeOrder({
+        shippingInfo: {
+          shippingInfo
+        },
+        cardInfo: {
+         values
+        },
+        cartItems: [ ...cartItems ],
+        totalQuantity:totalSum
+      }));
+      navigate("/orderstatus");
     },
     validationSchema: Yup.object({
       cardHolder: Yup.string()

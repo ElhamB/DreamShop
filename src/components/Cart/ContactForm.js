@@ -40,7 +40,7 @@ const formik = useFormik({
         .required("City is required"),
         zip: Yup.string()
         .matches(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/,
-        "Not a valid post code. Example: 1234 df")
+        "Not a valid post code. Example: 1234df")
         .required("Postal code is required"),
         address:Yup.string()
         .min(10,"Address is too short")

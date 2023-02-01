@@ -7,6 +7,7 @@ import { FilterProductReducer } from "./Filter";
 import { slideshowDetailReducer,slideshowListReducer } from "./SlideShow";
 import { authReducer } from "./Auth";
 import { paymentFormReducer } from "./Payment";
+import { makeOrderReducer } from "./Order";
  export default combineReducers({
     productList: ProductListReducer,
     productDetails: ProductDetailReducer,
@@ -17,5 +18,6 @@ import { paymentFormReducer } from "./Payment";
     slideList:slideshowListReducer,
     slideDetails:slideshowDetailReducer,
     auth:authReducer,
-    payment:paymentFormReducer
+    payment:paymentFormReducer,
+    order:makeOrderReducer
   });

@@ -22,7 +22,7 @@ export const addShippingInfo = ({ firstName , lastName , address, city, region, 
   });
 };
 
-export const addCartInfo = ({ cardHolder, cardNumber, expiryDate , CVV }) => async (dispatch) => {
+export const addCardInfo = ({ cardHolder, cardNumber, expiryDate , CVV }) => async (dispatch) => {
   dispatch({
     type: ADD_CARD_INFO,
     cardInfo: {
@@ -36,8 +36,7 @@ export const addCartInfo = ({ cardHolder, cardNumber, expiryDate , CVV }) => asy
 };
 
 //reducers
-export const paymentFormReducer = (
-  state = { shippingInfo: {}, cardInfo: {} }, action) => {
+export const paymentFormReducer = (state = { shippingInfo: {}, cardInfo: {} }, action) => {
   switch (action.type) {
     case ADD_SHIPPING_INFO:
       return {
