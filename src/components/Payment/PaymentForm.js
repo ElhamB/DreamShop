@@ -1,17 +1,63 @@
+import { useFormik } from "formik";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addCartInfo } from "../../store/Payment";
 import Button from "../UI/Button";
+import * as Yup from "yup";
 const PaymentForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const cardInfo = useSelector((shipInfo) => shipInfo.payment.cardInfo);
-  const { cardName, cardNumber, expiryDate, CVV } = cardInfo;
-  const paymentHandler = () => {
-    navigate("/Thankyou");
-  };
+  // this regex that matches Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards:
+  // ^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$
+
+  // Carte Blanche Card: ^389[0-9]{11}$
+
+  // const cardInfo = useSelector((shipInfo) => shipInfo.payment.cardInfo);
+  // const { cardHolder, cardNumber, expiryDate, CVV } = cardInfo;
+
+  const formik = useFormik({
+    initialValues: {
+      cardHolder: "",
+      cardNumber: "",
+      expiryDate: "",
+      CVV: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      dispatch(addCartInfo(values));
+      navigate("/Thankyou");
+    },
+    validationSchema: Yup.object({
+      cardHolder: Yup.string()
+        .min("3", "Card holder is too short")
+        .max(50, "Card holder is too Long!")
+        .required("Card holder is required"),
+      cardNumber: Yup.string()
+        .matches(
+          /^389[0-9]{11}$/,
+          "Not a valid credit card number. example 38910245897222"
+        )
+        .required("Card number is required"),
+      CVV: Yup.string()
+      .matches(
+        /^[0-9]{3,4}$/,
+        "Not a valid expiration date. Example: xxx or xxxx"
+      )
+      .required("CVV is required"),
+      expiryDate: Yup.string()
+        .typeError("Not a valid expiration date. Example: MM/YY")
+        .max(5, "Not a valid expiration date. Example: MM/YY")
+        .matches(
+          /([0-9]{2})\/([0-9]{2})/,
+          "Not a valid expiration date. Example: MM/YY"
+        )
+        .required("Expiration date is required"),
+    }),
+  });
   return (
-    <form className="row g-3 mb-4">
+    <form className="row g-3 mb-4" onSubmit={formik.handleSubmit}>
       <h6>Card information</h6>
       <div className="col-md-12">
         <label htmlFor="cardName" className="form-label">
@@ -20,10 +66,12 @@ const PaymentForm = () => {
         <input
           type="text"
           className="form-control"
-          name="cardName"
           id="cardName"
-          defaultValue={cardName}
+          {...formik.getFieldProps("cardHolder")}
         />
+        {formik.touched.cardHolder && formik.errors.cardHolder ? (
+          <div className="text-danger">{formik.errors.cardHolder}</div>
+        ) : null}
       </div>
       <div className="col-md-12">
         <label htmlFor="cardNumber" className="form-label">
@@ -32,11 +80,13 @@ const PaymentForm = () => {
         <input
           type="text"
           className="form-control"
-          name="cardNumber"
           id="cardNumber"
           placeholder="xxxx xxxx xxxx xxxx"
-          defaultValue={cardNumber}
+          {...formik.getFieldProps("cardNumber")}
         />
+        {formik.touched.cardNumber && formik.errors.cardNumber ? (
+          <div className="text-danger">{formik.errors.cardNumber}</div>
+        ) : null}
       </div>
       <div className="col-md-6">
         <label htmlFor="cardNumber" className="form-label">
@@ -45,11 +95,13 @@ const PaymentForm = () => {
         <input
           type="text"
           className="form-control"
-          name="expiryDate"
           id="expiryDate"
-          placeholder="mm / yy"
-          defaultValue={expiryDate}
+          placeholder="MM/YY"
+          {...formik.getFieldProps("expiryDate")}
         />
+        {formik.touched.expiryDate && formik.errors.expiryDate ? (
+          <div className="text-danger">{formik.errors.expiryDate}</div>
+        ) : null}
       </div>
       <div className="col-md-6">
         <label htmlFor="CVV" className="form-label">
@@ -58,14 +110,16 @@ const PaymentForm = () => {
         <input
           type="text"
           className="form-control"
-          name="CVV"
           id="CVV"
-          placeholder="x x x"
-          defaultValue={CVV}
+          placeholder="x x x or x x x x"
+          {...formik.getFieldProps("CVV")}
         />
+        {formik.touched.CVV && formik.errors.CVV ? (
+          <div className="text-danger">{formik.errors.CVV}</div>
+        ) : null}
       </div>
       <div className="col-md-12">
-        <Button onClick={paymentHandler}>Make payment</Button>
+        <Button type="submit">Make payment</Button>
       </div>
     </form>
   );

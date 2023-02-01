@@ -1,16 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import Button from "../UI/Button";
+import {addShippingInfo} from '../../store/Payment';
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm= ()=>  {
-const shippingInfo=useSelector(shipInfo=>shipInfo.payment.shippingInfo);
-const {firstName,lastName,address, city,state,zip}=shippingInfo;
-
-const cartItems = useSelector((state) => state.cart.cartItems);
-const checkoutDisabled =cartItems.length === 0;
-
+// const shippingInfo=useSelector(shipInfo=>shipInfo.payment.shippingInfo);
+// const {firstName,lastName,address, city,region,zip}=shippingInfo;
+const navigate = useNavigate();
+const dispatch=useDispatch();
 const formik = useFormik({
     initialValues: {
      firstName: "",
@@ -21,7 +21,9 @@ const formik = useFormik({
      region:""
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    console.log(values);
+    dispatch(addShippingInfo(values))
+    navigate("/payment");
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -37,7 +39,8 @@ const formik = useFormik({
         .max(10, "City is too Long!")
         .required("City is required"),
         zip: Yup.string()
-        .matches(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/)
+        .matches(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/,
+        "Not a valid post code. Example: 1234 df")
         .required("Postal code is required"),
         address:Yup.string()
         .min(10,"Address is too short")
@@ -46,6 +49,11 @@ const formik = useFormik({
         region:Yup.string().required("Region is required")
     }),
   });
+//disable button if cart is empty
+const cartItems = useSelector((state) => state.cart.cartItems);
+const checkoutDisabled =cartItems.length === 0;
+
+
   return (
     <form  className="row g-3 mb-4" onSubmit={formik.handleSubmit}>
     <h6>Contact information</h6>

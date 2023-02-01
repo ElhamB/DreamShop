@@ -7,7 +7,7 @@ const ADD_SHIPPING_INFO = "ADD_SHIPPING_INFO";
 const ADD_CARD_INFO = "ADD_CARD_INFO";
 
 //action creators
-export const addShippingInfo = ({ firstName , lastName , address, city, state, zip }) => async (dispatch) => {
+export const addShippingInfo = ({ firstName , lastName , address, city, region, zip }) => async (dispatch) => {
   dispatch({
     type: ADD_SHIPPING_INFO,
     shippingInfo: {
@@ -16,18 +16,18 @@ export const addShippingInfo = ({ firstName , lastName , address, city, state, z
       lastName,
       address,
       city,
-      state,
+      region,
       zip
     },
   });
 };
 
-export const addCartInfo = ({ cardName, cardNumber, expiryDate , CVV }) => async (dispatch) => {
+export const addCartInfo = ({ cardHolder, cardNumber, expiryDate , CVV }) => async (dispatch) => {
   dispatch({
     type: ADD_CARD_INFO,
     cardInfo: {
       id: uuidv4(),
-      cardName,
+      cardHolder,
       cardNumber,
       expiryDate,
       CVV
@@ -42,10 +42,10 @@ export const paymentFormReducer = (
     case ADD_SHIPPING_INFO:
       return {
         ...state,
-        shippingInfo: [...state.shippingInfo, action.shippingInfo],
+        shippingInfo: action.shippingInfo,
       };
     case ADD_CARD_INFO:
-      return { ...state, cardInfo: [...state.cardInfo, action.cardInfo] };
+      return { ...state, cardInfo: action.cardInfo };
 
     default:
       return state;
