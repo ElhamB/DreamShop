@@ -1,19 +1,19 @@
 {
-  "slides":[
- {
-  "id": 1,
-  "title": "A variety of minimalist furniture",
-    "description": "choose from the largest furniture sales site of the highest quality",
-    "image": "images/p6.png",
-    "url": "/"
-  },
-  {
-    "id": 2,
-    "title": "The best furniture",
-    "description": "choose from the largest furniture sales site of the highest quality",
-    "image": "images/p6.png",
-    "url": "/"
-  }
+  "slides": [
+    {
+      "id": 1,
+      "title": "A variety of minimalist furniture",
+      "description": "choose from the largest furniture sales site of the highest quality",
+      "image": "images/p6.png",
+      "url": "/"
+    },
+    {
+      "id": 2,
+      "title": "The best furniture",
+      "description": "choose from the largest furniture sales site of the highest quality",
+      "image": "images/p6.png",
+      "url": "/"
+    }
   ],
   "products": [
     {
@@ -23,21 +23,20 @@
       "image2": "/images/product_1_2.jpg",
       "description": "This sofa converts quickly and easily into a spacious bed when you remove the back cushions and pull out the underframe. ",
       "price": 599.99,
-      "measurement":"Length: 230 cm" ,
-      "categoryId":1,
-      "comments":[
+      "measurement": "Length: 230 cm",
+      "categoryId": 1,
+      "comments": [
         {
           "id": 1,
-          "name":"John Anderson",
-          "date":"27 Novemeber 2022",
+          "name": "John Anderson",
+          "date": "27 Novemeber 2022",
           "comment": "Awesome...."
         },
         {
           "id": 2,
-          "name":"mina",
-          "date":"10 June 2022",
+          "name": "mina",
+          "date": "10 June 2022",
           "comment": "I love this furniture"
-   
         }
       ]
     },
@@ -48,8 +47,8 @@
       "image2": "/images/product_4_2.jpg",
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 799.99,
-      "measurement":"Length: 230 cm" ,
-      "categoryId":1
+      "measurement": "Length: 230 cm",
+      "categoryId": 1
     },
     {
       "id": 3,
@@ -58,8 +57,8 @@
       "image2": "/images/product_8_2.jpg",
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 809.99,
-      "measurement":"Length: 230 cm" ,
-      "categoryId":2
+      "measurement": "Length: 230 cm",
+      "categoryId": 2
     },
     {
       "id": 4,
@@ -67,19 +66,19 @@
       "image1": "/images/product_11_1.jpg",
       "image2": "/images/product_11_2.jpg",
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
-      "price": 290.99, 
-      "measurement":"Length: 230 cm" ,
-      "categoryId":2
+      "price": 290.99,
+      "measurement": "Length: 230 cm",
+      "categoryId": 2
     },
     {
       "id": 5,
       "title": "Cushion Set 3 Pieces",
       "image1": "/images/product_1_1.jpg",
       "image2": "/images/product_1_2.jpg",
-       "description": " Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
+      "description": " Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 340.99,
-      "measurement":"Length: 230 cm" ,
-      "categoryId":2
+      "measurement": "Length: 230 cm",
+      "categoryId": 2
     },
     {
       "id": 6,
@@ -88,88 +87,201 @@
       "image2": "/images/product_8_2.jpg",
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 590.99,
-      "measurement":"Length: 230 cm" ,
-      "categoryId":3
+      "measurement": "Length: 230 cm",
+      "categoryId": 3
     },
     {
-      "id":7,
+      "id": 7,
       "title": "Carronade seat",
       "image1": "/images/product_8_1.jpg",
       "image2": "/images/product_8_2.jpg",
       "description": "Anchor your living room in contemporary style with this two-piece living room set, including one sofa and one loveseat. Founded on solid and manufactured wood frames, each sofa features a full back, track arms, and tapered block legs in a dark finish. Enveloped in polyester upholstery, each sofa features biscuit tufting and detail stitching for a tailored touch, while thick foam seats and back cushions provide comfort and support. Patterned throw pillows complete the set.",
       "price": 520.99,
-      "measurement":"Length: 330 cm" ,
-      "categoryId":4
+      "measurement": "Length: 330 cm",
+      "categoryId": 4
     }
   ],
   "comments": [
     {
       "id": 1,
-      "name":"ali",
+      "name": "ali",
       "comment": "Awesome....",
       "productId": 1
     },
     {
       "id": 2,
-      "name":"milad",
+      "name": "milad",
       "comment": "It was great",
-      "productId":2
+      "productId": 2
     },
     {
       "id": 3,
-      "name":"elham",
+      "name": "elham",
       "comment": "veryyyy gooood",
       "productId": 3
     },
     {
       "id": 4,
-      "name":"mina",
+      "name": "mina",
       "comment": "I love this product",
       "productId": 1
     }
-
   ],
   "category": [
     {
       "id": 1,
-      "title":"Sofa",
+      "title": "Sofa",
       "image": "/images/51.jpg"
     },
     {
       "id": 2,
-      "title":"TV units",
+      "title": "TV units",
       "image": "/images/cat-TV.jpg"
     },
     {
       "id": 3,
-      "title":"Bed",
+      "title": "Bed",
       "image": "/images/21.jpg"
     },
     {
-      "id":4,
-      "title":"Coffe table",
+      "id": 4,
+      "title": "Coffe table",
       "image": "/images/11.jpg"
     },
     {
-      "id":5,
-      "title":"Dining",
+      "id": 5,
+      "title": "Dining",
       "image": "/images/cat-dining.jpg"
     },
     {
-      "id":6,
-      "title":"Seats",
+      "id": 6,
+      "title": "Seats",
       "image": "/images/cat-seat.jpg"
     },
     {
-      "id":7,
-      "title":"Bookshelves",
+      "id": 7,
+      "title": "Bookshelves",
       "image": "/images/62.jpg"
     },
     {
-      "id":8,
-      "title":"Study",
+      "id": 8,
+      "title": "Study",
       "image": "/images/73.jpg"
     }
   ],
-  "order":[]
+  "order": [
+    {
+      "id": "23de00b6-1696-4938-a17a-56425392ffe1",
+      "shippingInfo": {
+        "shippingInfo": {
+          "id": "3f83f869-beb0-4945-b68b-5459965216e4",
+          "firstName": "elham",
+          "lastName": "Bagheri",
+          "address": "gdfhfhfh ghgfh",
+          "city": "northe",
+          "region": "Utrecht",
+          "zip": "5521hg"
+        }
+      },
+      "cardInfo": {
+        "values": {
+          "cardHolder": "Elham bagheri",
+          "cardNumber": "38910245897222",
+          "expiryDate": "02/12",
+          "CVV": "254"
+        }
+      },
+      "cartItems": [
+        {
+          "id": 3,
+          "title": "Flow Slim Armchair",
+          "price": 809.99,
+          "image1": "/images/product_8_1.jpg",
+          "qty": 2
+        },
+        {
+          "id": 2,
+          "title": "Can 2-Seater Sofa",
+          "price": 799.99,
+          "image1": "/images/product_4_1.jpg",
+          "qty": 1
+        }
+      ],
+      "totalQuantity": 2419.9700000000003
+    },
+    {
+      "id": "e67336cb-0541-4779-9c3a-fff0e9232b55",
+      "shippingInfo": {
+        "shippingInfo": {
+          "id": "c4cbc391-c643-4a4b-97aa-938cf276fc10",
+          "firstName": "elham",
+          "lastName": "Bagheri",
+          "address": "gdfhfhfh ghgfh",
+          "city": "northe",
+          "region": "Drenthe",
+          "zip": "5521hg"
+        }
+      },
+      "cardInfo": {
+        "values": {
+          "cardHolder": "Elham bagheri",
+          "cardNumber": "38910245897222",
+          "expiryDate": "02/12",
+          "CVV": "254"
+        }
+      },
+      "cartItems": [
+        {
+          "id": 3,
+          "title": "Flow Slim Armchair",
+          "price": 809.99,
+          "image1": "/images/product_8_1.jpg",
+          "qty": 2
+        },
+        {
+          "id": 2,
+          "title": "Can 2-Seater Sofa",
+          "price": 799.99,
+          "image1": "/images/product_4_1.jpg",
+          "qty": 1
+        }
+      ],
+      "totalQuantity": 2419.9700000000003
+    },
+    {
+      "id": "10c4bd19-ca5f-43f4-a761-7de1335a7406",
+      "shippingInfo": {
+        "id": "831453d9-6795-4386-86c8-921a2ccd62b7",
+        "firstName": "elham",
+        "lastName": "Bagheri",
+        "address": "gdfhfhfh ghgfh",
+        "city": "northe",
+        "region": "Drenthe",
+        "zip": "5521hg"
+      },
+      "cardInfo": {
+        "cardHolder": "Elham bagheri",
+        "cardNumber": "38910245897222",
+        "expiryDate": "02/12",
+        "CVV": "254"
+      },
+      "cartItems": [
+        {
+          "id": 3,
+          "title": "Flow Slim Armchair",
+          "price": 809.99,
+          "image1": "/images/product_8_1.jpg",
+          "qty": 2
+        },
+        {
+          "id": 2,
+          "title": "Can 2-Seater Sofa",
+          "price": 799.99,
+          "image1": "/images/product_4_1.jpg",
+          "qty": 1
+        }
+      ],
+      "totalQuantity": 2419.9700000000003
+    }
+  ]
 }

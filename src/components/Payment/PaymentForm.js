@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addCardInfo } from "../../store/Payment";
-import {makeOrder} from '../../store/Order';
+import {createOrder} from '../../store/Order';
 import Button from "../UI/Button";
 import * as Yup from "yup";
 const PaymentForm = () => {
@@ -36,14 +36,10 @@ const cartItems=useSelector(state=>state.cart.cartItems);
     },
     onSubmit: (values) => {
       console.log(values);
-    //  dispatch(addCardInfo(values));
-      dispatch(makeOrder({
-        shippingInfo: {
-          shippingInfo
-        },
-        cardInfo: {
-         values
-        },
+     dispatch(addCardInfo(values));
+      dispatch(createOrder({
+        shippingInfo,
+        cardInfo:values,
         cartItems: [ ...cartItems ],
         totalQuantity:totalSum
       }));
