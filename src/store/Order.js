@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-// axios.defaults.baseURL = "http://localhost:8000";
-
+import { showNotification } from "./UI";
+axios.defaults.baseURL = "http://localhost:8000";
 //action types
 const CREATE_ORDER = "CREATE_ORDER";
 const FETCH_ORDER = "FETCH_ORDER";
@@ -22,12 +22,30 @@ export const createOrder =
           totalQuantity,
         })
         .then((response) => {
+          if (!response.ok) {
+            throw new Error("sending cart data failed.");
+          }
+        
           dispatch({ type: CREATE_ORDER, order: response });
           localStorage.clear("cartItems");
           dispatch({ type: CLEAR_CART });
+          dispatch(
+            showNotification({
+              title: "Order confirmed!",
+              status: "success",
+              message: "Your order has been placed successfully.",
+            })
+          );
         });
     } catch (error) {
       console.log(error);
+      dispatch(
+        showNotification({
+          title: "Order Failed!",
+          status: "error",
+          message: "Unfortunately, an error occurred. Please try again",
+        })
+      );
     }
   };
 export const clearOrder = () => async (dispatch) => {
@@ -35,10 +53,21 @@ export const clearOrder = () => async (dispatch) => {
 };
 export const fetchOrder = () => async (dispatch) => {
   try {
-    const { data } = await axios.get("/order");
+    const { data } = await axios.get("/order").then((response) => {
+      if (!response.ok) {
+        throw new Error("Loading orders Failed.");
+      }
+    });
     dispatch({ type: FETCH_ORDER, order: data });
   } catch (error) {
     console.log(error);
+    dispatch(
+      showNotification({
+        title: "Loading orders Failed!",
+        status: "error",
+        message: "Unfortunately, an error occurred. Please reload the page.",
+      })
+    );
   }
 };
 //reducers

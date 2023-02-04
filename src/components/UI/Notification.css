@@ -1,0 +1,11 @@
+.order-status-wrapper{
+    padding: 50px;
+    background-color: #F8F9FA;
+}
+.error {
+    background-color: #690000;
+  }
+  
+  .success {
+    background-color: #1ad1b9;
+  }

@@ -1,12 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { formatCurrency } from "../../utilities";
 import Button from "../UI/Button";
 import CartItem from "./CartItem";
 import "./CartBox.css";
+import { CartToggleAction } from "../../store/UI";
 const CartBox = () => {
 const[show,setShow]=useState(true);
+const dispatch=useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(()=>{
@@ -29,8 +31,9 @@ const[show,setShow]=useState(true);
   //disable checkout button if cart is empty
   const checkoutDisabled =cartItems.length === 0;
 
-  const onClickHandler = () => {
+  const checkoutkHandler = () => {
     navigate("/checkout");
+    dispatch(CartToggleAction());
   };
 
   return (
@@ -64,7 +67,7 @@ const[show,setShow]=useState(true);
           <span className="price-title">Total</span>
           <span className="price-total">{formatCurrency(totalSum + 50)}</span>
         </div>
-      {show && <Button disabled={checkoutDisabled} onClick={onClickHandler}>
+      {show && <Button disabled={checkoutDisabled} onClick={checkoutkHandler}>
           Check out
         </Button> }  
       </div>
