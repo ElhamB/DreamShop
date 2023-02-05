@@ -1,7 +1,7 @@
 import {combineReducers } from "redux";
 import CategoryListReducer from "./Category";
 import CartReducer from "./Cart";
-import UIReducer from "./UI";
+import uiReducer from "./UI";
 import { ProductDetailReducer,ProductListReducer } from "./Product";
 import { FilterProductReducer } from "./Filter";
 import { slideshowDetailReducer,slideshowListReducer } from "./SlideShow";
@@ -13,7 +13,7 @@ import { orderReducer } from "./Order";
     productDetails: ProductDetailReducer,
     categoryList: CategoryListReducer,
     cart: CartReducer,
-    ui:UIReducer,
+    ui:uiReducer,
     filter:FilterProductReducer,
     slideList:slideshowListReducer,
     slideDetails:slideshowDetailReducer,

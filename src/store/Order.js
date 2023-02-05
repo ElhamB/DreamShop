@@ -22,10 +22,6 @@ export const createOrder =
           totalQuantity,
         })
         .then((response) => {
-          if (!response.ok) {
-            throw new Error("sending cart data failed.");
-          }
-        
           dispatch({ type: CREATE_ORDER, order: response });
           localStorage.clear("cartItems");
           dispatch({ type: CLEAR_CART });
@@ -71,14 +67,14 @@ export const fetchOrder = () => async (dispatch) => {
   }
 };
 //reducers
-export const orderReducer = (state = { order: {} }, action) => {
+export const orderReducer = (state = { orders: [] }, action) => {
   switch (action.type) {
     case CREATE_ORDER:
-      return { ...state, order: action.order };
+      return { ...state, orders: [...state.orders,action.order] };
     case FETCH_ORDER:
-      return { order: action.order };
+      return { ...state,order: action.order };
     case CLEAR_ORDER:
-      return { order: {} };
+      return { ...state, order: null };
     default:
       return state;
   }

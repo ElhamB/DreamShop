@@ -3,15 +3,19 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../UI/Button";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { register } from "../../store/Auth";
 const Signup = () => {
+  const dispatch=useDispatch();
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
+      firstName:"",
+      lastName:""
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    dispatch(register(values));
     },
     validationSchema: Yup.object({
       firstName: Yup.string()

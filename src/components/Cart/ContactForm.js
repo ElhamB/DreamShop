@@ -99,7 +99,7 @@ const checkoutDisabled =cartItems.length === 0;
         {formik.touched.address && formik.errors.address ? (<div className="text-danger">{formik.errors.address}</div>):null}
     </div>
     <div>
-    <Button type="submit" className="col-12" disabled={checkoutDisabled} >
+    <Button type="submit"  disabled={checkoutDisabled} >
           Continue
         </Button>
     </div>

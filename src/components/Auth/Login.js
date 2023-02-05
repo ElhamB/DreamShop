@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../UI/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../store/Auth";
 
 const SignIn = () => {
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+  const user=useSelector(state=>state.auth.user);
+  useEffect(()=>{
+if(user){
+  navigate("/")
+}
+  },[user,navigate])
   const formik = useFormik({
     initialValues: {
       email:'',
       password:''
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      dispatch(login(values));
+
     },
     validationSchema:Yup.object({
       password: Yup.string()

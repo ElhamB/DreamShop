@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import "./Signup.css";
-import Signup from "../../components/Auth/Signup";
+import Register from "../../components/Auth/Register";
 import Title from "../../components/Title/Title";
+import "./Register.css";
 
-export const SignUpPage = () => {
-  const title = "Sign up";
+export const RegisterPage = () => {
+  const title = "Register";
   return (
     <Fragment>
       <Title title={title}/>
@@ -20,7 +20,7 @@ export const SignUpPage = () => {
               </div>
               <div className="col-sm-7 col-7 ">
               <p className="text-end">
-                Already a member? <Link to="/signin">Sign In</Link>
+                Already a member? <Link to="/login">Sign In</Link>
               </p>
               </div>
             </div>
@@ -30,10 +30,10 @@ export const SignUpPage = () => {
           <div className="signup-form">
             <div className="d-none d-lg-block">
               <p className="text-end">
-                Already a member? <Link to="/signin">Sign In</Link>
+                Already a member? <Link to="/login">Sign In</Link>
               </p>
             </div>
-            <Signup />
+            <Register />
           </div>
         </div>
         <div className="col-left">

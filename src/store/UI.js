@@ -2,7 +2,7 @@
 const TOGGLE_CART = "TOGGLE_CART";
 const SHOW_NOTIFICATION = "SHOW_NOTIFICATION";
 //action creators
-export const CartToggleAction = () => (dispatch) => {
+export const cartToggleAction = () => (dispatch) => {
   dispatch({ type: TOGGLE_CART });
 };
 export const showNotification =
@@ -18,7 +18,7 @@ export const showNotification =
     });
   };
 //reducers
-export default function UIReducer(
+export default function uiReducer(
   state = { cartIsVisible: false, notification: {} },
   action
 ) {

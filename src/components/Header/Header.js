@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CartToggleAction } from '../../store/UI';
+import { cartToggleAction } from '../../store/UI';
+import { logout,login } from '../../store/Auth';
 import { Link } from "react-router-dom";
 import './Header.css'
 
 const Header = () => {
   const dispatch = useDispatch();
+  const user=useSelector(state=>state.auth.user);
   const cartItems = useSelector(state => state.cart.cartItems);
   const [cartTotalCount, setCartTotalCount] = useState(0);
   useEffect(() => {
     setCartTotalCount(cartItems.reduce((acc, item) => acc + item.qty, 0));
   }, [cartItems]);
 
+  useEffect(()=>{
+    const storedisloggedIn=localStorage.getItem("isLoggedIn");
+    if(storedisloggedIn ===1){
+      console.log("hi")
+    }
+    },[dispatch]);
   const toggleCartHandler = () => {
-    dispatch(CartToggleAction())
+    dispatch(cartToggleAction())
+  }
+  const logoutHandler=()=>{
+    dispatch(logout())
   }
 
   return (
@@ -31,17 +42,10 @@ const Header = () => {
               </li>
 
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Products
-                </Link>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="#">Action</Link></li>
-                  <li><Link className="dropdown-item" to="#">Another action</Link></li>
-                  <li><Link className="dropdown-item" to="#">Something else here</Link></li>
-                </ul>
+                <Link className="nav-link" to="/search">Products</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">About us</Link>
+                <Link className="nav-link" to="/aboutus">About us</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">Contact us</Link>
@@ -49,7 +53,18 @@ const Header = () => {
             </ul>
             <ul className='d-flex right-menu'>
               <li><button><i className='fa fa-search'></i></button></li>
-              <li><Link to='#'><i className='fa fa-user-o'></i></Link></li>
+             {!user && <li><Link to='/login'><i className='fa fa-user-o'></i></Link></li>} 
+              { user && (<li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className='fa fa-user-o'></i> {user.firstName} 
+                </Link>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" to="/profile">Profile</Link></li>
+                  <li><Link className="dropdown-item" to="/orders">Orders</Link></li>
+                  <li><Link className="dropdown-item" to="/favorites">favorites</Link></li>
+                  <li><Link className="dropdown-item" onClick={logoutHandler} >Logout</Link></li>
+                </ul>
+              </li>)}
               <li><button onClick={toggleCartHandler}><i className='fa fa-shopping-cart'></i><span className='badge rounded-pill bg-warning'>{cartTotalCount}</span></button></li>
             </ul>
 

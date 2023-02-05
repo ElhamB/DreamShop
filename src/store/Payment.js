@@ -35,7 +35,7 @@ export const addCardInfo = ({ cardHolder, cardNumber, expiryDate , CVV }) => asy
   });
 };
 
-//reducers
+//reducer
 export const paymentFormReducer = (state = { shippingInfo: {}, cardInfo: {} }, action) => {
   switch (action.type) {
     case ADD_SHIPPING_INFO:

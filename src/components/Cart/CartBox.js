@@ -5,7 +5,7 @@ import { formatCurrency } from "../../utilities";
 import Button from "../UI/Button";
 import CartItem from "./CartItem";
 import "./CartBox.css";
-import { CartToggleAction } from "../../store/UI";
+import { cartToggleAction } from "../../store/UI";
 const CartBox = () => {
 const[show,setShow]=useState(true);
 const dispatch=useDispatch();
@@ -33,7 +33,7 @@ const dispatch=useDispatch();
 
   const checkoutkHandler = () => {
     navigate("/checkout");
-    dispatch(CartToggleAction());
+    dispatch(cartToggleAction());
   };
 
   return (

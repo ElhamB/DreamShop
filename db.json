@@ -387,6 +387,92 @@
         }
       ],
       "totalQuantity": 1399.98
+    },
+    {
+      "id": "c463bcf3-fb40-4a71-a490-60497cbf6301",
+      "shippingInfo": {
+        "id": "6d45305a-0e58-471f-81d6-e60414cc07fe",
+        "firstName": "fatima",
+        "lastName": "Bagheri",
+        "address": "gdfhfhfh ghgfh",
+        "city": "northe",
+        "region": "Drenthe",
+        "zip": "5521hg"
+      },
+      "cardInfo": {
+        "cardHolder": "Elham bagheri",
+        "cardNumber": "38910245897222",
+        "expiryDate": "66/10",
+        "CVV": "254"
+      },
+      "cartItems": [
+        {
+          "id": 1,
+          "title": "2-Seater",
+          "price": 599.99,
+          "image1": "/images/product_1_1.jpg",
+          "qty": 1
+        },
+        {
+          "id": 2,
+          "title": "Can 2-Seater Sofa",
+          "price": 799.99,
+          "image1": "/images/product_4_1.jpg",
+          "qty": 1
+        }
+      ],
+      "totalQuantity": 1399.98
+    },
+    {
+      "id": "f84c8760-0da8-4186-8d54-92c4a761d31a",
+      "shippingInfo": {
+        "id": "471454a4-0917-44fb-9b35-2f7902cf29a4",
+        "firstName": "elham",
+        "lastName": "ahmadi",
+        "address": "gdfhfhfh ghgfh",
+        "city": "northe",
+        "region": "Drenthe",
+        "zip": "5521hg"
+      },
+      "cardInfo": {
+        "cardHolder": "bhh",
+        "cardNumber": "38910245897222",
+        "expiryDate": "66/33",
+        "CVV": "254"
+      },
+      "cartItems": [
+        {
+          "id": 3,
+          "title": "Flow Slim Armchair",
+          "price": 809.99,
+          "image1": "/images/product_8_1.jpg",
+          "qty": 1
+        }
+      ],
+      "totalQuantity": 809.99
+    }
+  ],
+  "users": [
+    {
+      "id": "e3b83b0c-b32c-4ff8-8da8-3a59bda790e4",
+      "firstName": "elham",
+      "lastName": "ahmadi",
+      "email": "it.ebagheri@gmail.com",
+      "password": "eli1370"
+    },
+    {
+      "id": "1d0f49d5-edbf-47dc-b91e-c80dbb2ed7d5",
+      "firstName": "fatima",
+      "lastName": "ahmadi",
+      "email": "it.ebagheri@gmail.com",
+      "password": "eli1370"
+    },
+    {
+      "id": "46920746-f99e-48d5-8c4f-b526bb9c9bfe",
+      "firstName": "reza",
+      "lastName": "rezai",
+      "email": "it.eheri@gmail.com",
+      "password": "eli1370"
     }
   ]
 }

@@ -6,7 +6,6 @@ import Notification from "../../components/UI/Notification";
 
 export const OrderStatusPage = () => {
   const notification = useSelector((state) => state.ui.notification);
-
   const navigate = useNavigate();
   const successClickHandler = () => {
     navigate("/orders");

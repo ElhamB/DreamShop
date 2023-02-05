@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import SignIn from '../../components/Auth/SignIn';
+import Login from '../../components/Auth/Login';
 import { Link } from "react-router-dom";
 import Title from "../../components/Title/Title";
 
-export const SignInPage = () => {
-    const title = "Sign in";
+export const LoginPage = () => {
+    const title = "Login";
     return (
       <Fragment>
         <Title title={title}/>
@@ -19,7 +19,7 @@ export const SignInPage = () => {
                 </div>
                 <div className="col-sm-7 col-7 ">
                 <p className="text-end">
-                  Not a member? <Link to="/signup">Sign up now</Link>
+                  Not a member? <Link to="/register">Sign up now</Link>
                 </p>
                 </div>
               </div>
@@ -29,10 +29,10 @@ export const SignInPage = () => {
             <div className="signup-form">
               <div className="d-none d-lg-block">
                 <p className="text-end">
-                Not a member? <Link to="/signup">Sign up now</Link>
+                Not a member? <Link to="/register">Sign up now</Link>
                 </p>
               </div>
-              <SignIn />
+              <Login />
             </div>
           </div>
           <div className="col-left">
