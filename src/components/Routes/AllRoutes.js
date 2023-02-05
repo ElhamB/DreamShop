@@ -14,7 +14,9 @@ import {
   RegisterPage,
   PaymentPage,
   LoginPage,
-  OrderStatusPage
+  OrderStatusPage,
+  OrdersPage,
+  ShowDetailsOrderPage
 } from "../../pages";
 
 const AllRoutes = () => {
@@ -35,6 +37,8 @@ const AllRoutes = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/orderstatus" element={<OrderStatusPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/showdetails" element={<ShowDetailsOrderPage />} />
         </Route>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

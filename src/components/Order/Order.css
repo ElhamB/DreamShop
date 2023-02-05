@@ -1,0 +1,7 @@
+.order-container{
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+.title-span{
+    color:var(--gray-color);
+}
