@@ -10,7 +10,7 @@ const CLEAR_CART = "CLEAR_CART";
 
 //action creators
 export const createOrder =
-  ({ shippingInfo, cardInfo, cartItems, totalQuantity,email }) =>
+  ({ shippingInfo, cardInfo, cartItems, totalQuantity,userId }) =>
   async (dispatch) => {
     try {
       axios
@@ -20,7 +20,7 @@ export const createOrder =
           cardInfo,
           cartItems,
           totalQuantity,
-          email,
+          userId,
           date:new Date().toLocaleString()
         })
         .then((response) => {
@@ -49,9 +49,9 @@ export const createOrder =
 export const clearOrder = () => async (dispatch) => {
   dispatch({ type: CLEAR_ORDER });
 };
-export const fetchOrder = (email) => async (dispatch) => {
+export const fetchOrder = (userId) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`/orders/${email}`);
+    const { data } = await axios.get(`/orders/${userId}`);
     dispatch({ type: FETCH_ORDER, order: data });
 
   } catch (error) {

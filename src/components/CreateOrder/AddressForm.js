@@ -21,7 +21,6 @@ const formik = useFormik({
      region:""
     },
     onSubmit: (values) => {
-    console.log(values);
     dispatch(addShippingInfo(values))
     navigate("/payment");
     },

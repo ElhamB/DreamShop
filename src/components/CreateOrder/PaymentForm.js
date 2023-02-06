@@ -1,16 +1,20 @@
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addCardInfo } from "../../store/Payment";
-import {createOrder} from '../../store/Order';
+import { createOrder } from "../../store/Order";
 import Button from "../UI/Button";
 import * as Yup from "yup";
 const PaymentForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-const shippingInfo=useSelector(state=>state.payment.shippingInfo);
-const cartItems=useSelector(state=>state.cart.cartItems);
+  // const user = useSelector((state) => state.auth.user);
+  const user = localStorage.getItem("user");
+  const currentUser = JSON.parse(user);
+  const shippingInfo = useSelector((state) => state.payment.shippingInfo);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  let order;
   //calculate total sum
   let totalSum = 0;
   let subTotal = [];
@@ -35,14 +39,10 @@ const cartItems=useSelector(state=>state.cart.cartItems);
       CVV: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-     dispatch(addCardInfo(values));
-      dispatch(createOrder({
-        shippingInfo,
-        cardInfo:values,
-        cartItems: [ ...cartItems ],
-        totalQuantity:totalSum
-      }));
+      dispatch(addCardInfo(values));
+      dispatch(
+        createOrder(order)
+      );
       navigate("/orderstatus");
     },
     validationSchema: Yup.object({
@@ -57,11 +57,11 @@ const cartItems=useSelector(state=>state.cart.cartItems);
         )
         .required("Card number is required"),
       CVV: Yup.string()
-      .matches(
-        /^[0-9]{3,4}$/,
-        "Not a valid expiration date. Example: xxx or xxxx"
-      )
-      .required("CVV is required"),
+        .matches(
+          /^[0-9]{3,4}$/,
+          "Not a valid expiration date. Example: xxx or xxxx"
+        )
+        .required("CVV is required"),
       expiryDate: Yup.string()
         .typeError("Not a valid expiration date. Example: MM/YY")
         .max(5, "Not a valid expiration date. Example: MM/YY")
@@ -72,6 +72,16 @@ const cartItems=useSelector(state=>state.cart.cartItems);
         .required("Expiration date is required"),
     }),
   });
+  if(currentUser){
+     order={
+      shippingInfo,
+      cardInfo: formik.values,
+      cartItems: [...cartItems],
+      totalQuantity: totalSum,
+      userId:currentUser.id
+     }
+  }
+
   return (
     <form className="row g-3 mb-4" onSubmit={formik.handleSubmit}>
       <h6>Card information</h6>

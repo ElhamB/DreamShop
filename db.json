@@ -171,11 +171,11 @@
   ],
   "orders": [
     {
-      "id": "97cd6e31-5c24-4b38-a9a3-1710e7ea36b4",
+      "id": "2062a624-39a0-434b-a201-9229b4ca1383",
       "shippingInfo": {
-        "id": "33adc63e-6ee0-40f3-b997-846ff35c97ea",
+        "id": "84959fd9-b7ec-41b9-a5ce-be1787639621",
         "firstName": "elham",
-        "lastName": "ahmadi",
+        "lastName": "Bagheri",
         "address": "gdfhfhfh ghgfh",
         "city": "northe",
         "region": "Drenthe",
@@ -189,44 +189,16 @@
       },
       "cartItems": [
         {
-          "id": 4,
-          "title": "Roots Sofa Bed",
-          "price": 290.99,
-          "image1": "/images/product_11_1.jpg",
+          "id": 3,
+          "title": "Flow Slim Armchair",
+          "price": 809.99,
+          "image1": "/images/product_8_1.jpg",
           "qty": 1
         }
       ],
-      "totalQuantity": 290.99,
-      "date": "2/6/2023, 12:19:11 PM"
-    },
-    {
-      "id": "08038142-8267-4de7-912e-4385a3a430cd",
-      "shippingInfo": {
-        "id": "e912113e-fb9b-4260-ac87-8246260cff7d",
-        "firstName": "elham",
-        "lastName": "ahmadi",
-        "address": "gdfhfhfh ghgfh",
-        "city": "northe",
-        "region": "North Holland",
-        "zip": "5521hg"
-      },
-      "cardInfo": {
-        "cardHolder": "bhh",
-        "cardNumber": "38910245897222",
-        "expiryDate": "02/12",
-        "CVV": "254"
-      },
-      "cartItems": [
-        {
-          "id": 4,
-          "title": "Roots Sofa Bed",
-          "price": 290.99,
-          "image1": "/images/product_11_1.jpg",
-          "qty": 1
-        }
-      ],
-      "totalQuantity": 290.99,
-      "date": "2/6/2023, 6:20:11 PM"
+      "totalQuantity": 809.99,
+      "userId": "e3b83b0c-b32c-4ff8-8da8-3a59bda790e4",
+      "date": "2/6/2023, 8:10:55 PM"
     }
   ],
   "users": [

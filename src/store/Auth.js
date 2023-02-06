@@ -40,6 +40,7 @@ export const login =
         dispatch({
           type: LOGIN,
           user: {
+            id:existingUser.id,
             email,
             password,
             firstName: existingUser.firstName
