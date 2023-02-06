@@ -9,7 +9,7 @@ const LOGOUT = "LOGOUT";
 //action creators
 export const register =
   ({ firstName, lastName, email, password }) =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
     axios
       .post("http://localhost:8000/users", {
         id: uuidv4(),
@@ -17,20 +17,20 @@ export const register =
         lastName,
         email,
         password,
-        isLoggedIn:0
+        isLoggedIn: 0,
       })
       .then((response) => {
         dispatch({
           type: REGISTER,
           user: response,
         });
-        localStorage.setItem("isLoggedIn", "1");
+        localStorage.setItem("user", JSON.stringify(getState().auth.user));
       })
       .catch(console.log);
   };
 export const login =
   ({ email, password }) =>
-  async (dispatch) => {
+  async (dispatch, getState) => {
     const { data: users } = await axios.get("/users");
     if (users) {
       const existingUser = users.find(
@@ -42,34 +42,32 @@ export const login =
           user: {
             email,
             password,
-            firstName:existingUser.firstName,
-            isLoggedIn:1
+            firstName: existingUser.firstName
           },
         });
-        localStorage.setItem("isLoggedIn", "1");
+        localStorage.setItem("user", JSON.stringify(getState().auth.user));
       } else {
-
       }
     }
   };
 
-export const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch, getState) => {
   dispatch({
-    type: LOGOUT,
+    type: LOGOUT
   });
-  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("user", JSON.stringify(getState().auth.user));
+
 };
 //reducer
 export const authReducer = (
-  state = { user: null,isLoggedIn:null },
+  state = { user: null },
   action
 ) => {
   switch (action.type) {
     case REGISTER:
-      return { ...state, user: action.user};
+      return { ...state, user: action.user };
     case LOGIN:
-        return { ...state, user: action.user };
-     
+      return { ...state, user: action.user };
     case LOGOUT:
       return { ...state, user: null };
     default:

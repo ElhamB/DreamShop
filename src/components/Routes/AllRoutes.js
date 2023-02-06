@@ -16,7 +16,7 @@ import {
   LoginPage,
   OrderStatusPage,
   OrdersPage,
-  ShowDetailsOrderPage
+  ShowDetailsOrderPage,
 } from "../../pages";
 
 const AllRoutes = () => {
