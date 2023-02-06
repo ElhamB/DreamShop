@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import OrderList from "../../components/Order/OrderList";
-import PaymentForm from "../../components/Payment/PaymentForm";
+import PaymentForm from "../../components/CreateOrder/PaymentForm";
 import Title from "../../components/Title/Title";
 
 export const PaymentPage = () => {

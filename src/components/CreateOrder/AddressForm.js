@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
 
-const ContactForm= ()=>  {
+const AddressForm= ()=>  {
 // const shippingInfo=useSelector(shipInfo=>shipInfo.payment.shippingInfo);
 // const {firstName,lastName,address, city,region,zip}=shippingInfo;
 const navigate = useNavigate();
@@ -108,4 +108,4 @@ const checkoutDisabled =cartItems.length === 0;
 }
 
 
-export default ContactForm
+export default AddressForm

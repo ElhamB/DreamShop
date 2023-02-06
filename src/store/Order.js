@@ -10,16 +10,18 @@ const CLEAR_CART = "CLEAR_CART";
 
 //action creators
 export const createOrder =
-  ({ shippingInfo, cardInfo, cartItems, totalQuantity }) =>
+  ({ shippingInfo, cardInfo, cartItems, totalQuantity,email }) =>
   async (dispatch) => {
     try {
       axios
-        .post("/order", {
+        .post("/orders", {
           id: uuidv4(),
           shippingInfo,
           cardInfo,
           cartItems,
           totalQuantity,
+          email,
+          date:new Date().toLocaleString()
         })
         .then((response) => {
           dispatch({ type: CREATE_ORDER, order: response });
@@ -47,14 +49,11 @@ export const createOrder =
 export const clearOrder = () => async (dispatch) => {
   dispatch({ type: CLEAR_ORDER });
 };
-export const fetchOrder = () => async (dispatch) => {
+export const fetchOrder = (email) => async (dispatch) => {
   try {
-    const { data } = await axios.get("/order").then((response) => {
-      if (!response.ok) {
-        throw new Error("Loading orders Failed.");
-      }
-    });
+    const { data } = await axios.get(`/orders/${email}`);
     dispatch({ type: FETCH_ORDER, order: data });
+
   } catch (error) {
     console.log(error);
     dispatch(
@@ -67,7 +66,7 @@ export const fetchOrder = () => async (dispatch) => {
   }
 };
 //reducers
-export const orderReducer = (state = { orders: [] }, action) => {
+export const orderReducer = (state = { orders: [],order:{} }, action) => {
   switch (action.type) {
     case CREATE_ORDER:
       return { ...state, orders: [...state.orders,action.order] };

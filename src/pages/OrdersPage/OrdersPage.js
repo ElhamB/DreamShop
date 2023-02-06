@@ -1,5 +1,5 @@
 import React from "react";
-import OrderItem from "../../components/Order/OrderItem";
+import Orders from "../../components/Order/Orders";
 
 export const OrdersPage = () => {
   return (
@@ -7,7 +7,7 @@ export const OrdersPage = () => {
       <div className="row">
         <div className="col-sm-12 my-5">
             <h1 className="fs-3 text-center mb-5">Your Orders With Us</h1>
-            <OrderItem/>
+            <Orders/>
         </div>
       </div>
     </div>

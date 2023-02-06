@@ -5,3 +5,18 @@
 .title-span{
     color:var(--gray-color);
 }
+.sub-section{
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.order-items{
+list-style-type: none;
+}
+.order-items > div{
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.order-items .img-con{
+width: 120px;
+}
