@@ -17,6 +17,8 @@ import {
   OrderStatusPage,
   OrdersPage,
   ShowDetailsOrderPage,
+  FavoritePage,
+  ProfilePage
 } from "../../pages";
 
 const AllRoutes = () => {
@@ -39,6 +41,8 @@ const AllRoutes = () => {
           <Route path="/orderstatus" element={<OrderStatusPage />} />
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/orders/:id" element={<ShowDetailsOrderPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/favorites" element={<FavoritePage />} />
         </Route>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

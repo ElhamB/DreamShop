@@ -1,17 +1,20 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Orders from "../../components/Order/Orders";
+import Title from "../../components/Title/Title";
 
 export const OrdersPage = () => {
+  const title = "Orders";
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-12 my-5">
+    <Fragment>
+      <Title title={title} />
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-sm-12 col-md-8 my-5">
             <h1 className="fs-3 text-center mb-5">Your Orders With Us</h1>
-            <Orders/>
+            <Orders />
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
-
- 

@@ -24,9 +24,9 @@ export default function uiReducer(
 ) {
   switch (action.type) {
     case TOGGLE_CART:
-      return { cartIsVisible: !state.cartIsVisible };
+      return { ...state,cartIsVisible: !state.cartIsVisible };
     case SHOW_NOTIFICATION:
-      return { notification: action.notification };
+      return { ...state,notification: action.notification };
 
     default:
       return state;
