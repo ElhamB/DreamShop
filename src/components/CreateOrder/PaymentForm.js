@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addCardInfo } from "../../store/Payment";
 import { createOrder } from "../../store/Order";
+import { v4 as uuidv4 } from "uuid";
 import Button from "../UI/Button";
 import * as Yup from "yup";
 const PaymentForm = () => {
@@ -82,17 +83,21 @@ const PaymentForm = () => {
   });
   if (currentUser) {
     cardInfo = {
+      id: uuidv4(),
       cardInfo: formik.values,
       userId: currentUser.id,
     };
-
+console.log("id: "+ cardInfo.id);
     order = {
+      id: uuidv4(),
       addressId: shippingInfo.id,
-      cardInfo: formik.values,
+      cardId:cardInfo.id ,
       cartItems: [...totalCartItems],
       totalQuantity: totalSum,
       userId: currentUser.id,
     };
+    console.log("cardId: "+ order.cardInfo);
+
   }
   return (
     <form className="row g-3 mb-4" onSubmit={formik.handleSubmit}>

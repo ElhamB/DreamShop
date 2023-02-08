@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8000";
 
@@ -12,7 +11,6 @@ export const addShippingInfo =
   async (dispatch) => {
     axios
       .post("/address", {
-        id: uuidv4(),
         shippingInfo,
         userId
       })
@@ -27,7 +25,6 @@ export const addCardInfo =
   async (dispatch) => {
     axios
       .post("/card", {
-        id: uuidv4(),
         cardInfo,
         userId
       })

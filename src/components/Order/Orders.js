@@ -12,7 +12,6 @@ const Orders = () => {
   const orders = useSelector((state) => state.order.orders);
   const user = localStorage.getItem("user");
   const currentUser = JSON.parse(user);
-  console.log(orders);
   useEffect(() => {
     if(currentUser){
       dispatch(fetchOrder(currentUser.id));
@@ -20,7 +19,7 @@ const Orders = () => {
   }, [dispatch, currentUser]);
 
   const showDetailshandler = (id) => {
-    navigate(`/orders/${id}`);
+    navigate(`/order/${id}`);
   };
 
 
@@ -34,15 +33,14 @@ const Orders = () => {
       {orders.map((order) => (
         <div
           key={order.id}
-          className="d-flex justify-content-between order-container"
+          className="d-flex justify-content-between order-container mb-3"
         >
           <div>
             <p>
-              <strong>Date: {order.date}</strong>
-              {/* .split(' ')[0] */}
+              <strong>Date: {(order.date).split(',')[0]}</strong>
             </p>
             <span className="title-span">Order number: </span>
-            <span>{order.id}</span>
+            <span className="me-3">{order.id}</span>
             <span className="title-span">Total: </span>
             <span>{formatCurrency(order.totalQuantity)}</span>
           </div>
