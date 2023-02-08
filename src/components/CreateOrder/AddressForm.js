@@ -7,10 +7,11 @@ import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
 
 const AddressForm= ()=>  {
-// const shippingInfo=useSelector(shipInfo=>shipInfo.payment.shippingInfo);
-// const {firstName,lastName,address, city,region,zip}=shippingInfo;
 const navigate = useNavigate();
 const dispatch=useDispatch();
+const user = localStorage.getItem("user");
+const currentUser = JSON.parse(user);
+let shippingInfo;
 const formik = useFormik({
     initialValues: {
      firstName: "",
@@ -20,8 +21,8 @@ const formik = useFormik({
      address:"",
      region:""
     },
-    onSubmit: (values) => {
-    dispatch(addShippingInfo(values))
+    onSubmit: () => {
+    dispatch(addShippingInfo(shippingInfo))
     navigate("/payment");
     },
     validationSchema: Yup.object({
@@ -52,7 +53,12 @@ const formik = useFormik({
 const cartItems = useSelector((state) => state.cart.cartItems);
 const checkoutDisabled =cartItems.length === 0;
 
-
+if(currentUser){
+  shippingInfo={
+    shippingInfo:formik.values,
+      userId:currentUser.id
+     }
+  }
   return (
     <form  className="row g-3 mb-4" onSubmit={formik.handleSubmit}>
     <h6>Contact information</h6>

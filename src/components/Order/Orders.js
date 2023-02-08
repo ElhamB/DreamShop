@@ -13,7 +13,6 @@ const Orders = () => {
   const user = localStorage.getItem("user");
   const currentUser = JSON.parse(user);
   console.log(orders);
-  console.log(currentUser.id);
   useEffect(() => {
     if(currentUser){
       dispatch(fetchOrder(currentUser.id));
@@ -39,7 +38,8 @@ const Orders = () => {
         >
           <div>
             <p>
-              <strong>Date: {order.date.split(' ')[0]}</strong>
+              <strong>Date: {order.date}</strong>
+              {/* .split(' ')[0] */}
             </p>
             <span className="title-span">Order number: </span>
             <span>{order.id}</span>

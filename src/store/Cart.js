@@ -3,6 +3,7 @@ axios.defaults.baseURL = "http://localhost:8000";
 //action types
 const ADD_CART_ITEM = "ADD_CART_ITEM";
 const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+const CLEAR_CART = "CLEAR_CART";
 
 //action creators
 export const addToCart = (id) => async (dispatch, getState) => {
@@ -26,7 +27,9 @@ export const removeFromCart = (id) => (dispatch, getState) => {
     });
     localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
-
+export const clearCart = () => async (dispatch) => {
+    dispatch({ type: CLEAR_CART });
+  };
 //reducers
 export default function CartReducer(state = { cartItems: [] }, action) {
     switch (action.type) {
@@ -66,7 +69,8 @@ export default function CartReducer(state = { cartItems: [] }, action) {
                 cartItems:state.cartItems.filter(({ id }) => id !== action.payload)
               }
             }
-     
+     case CLEAR_CART:
+        return{...state,cartItems:null}
         default:
             return state
     }

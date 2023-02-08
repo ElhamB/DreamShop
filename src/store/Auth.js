@@ -22,7 +22,7 @@ export const register =
       .then((response) => {
         dispatch({
           type: REGISTER,
-          user: response,
+          user: response.data,
         });
         localStorage.setItem("user", JSON.stringify(getState().auth.user));
       })

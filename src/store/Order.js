@@ -1,23 +1,23 @@
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { showNotification } from "./UI";
+import { clearCart } from "./Cart";
 axios.defaults.baseURL = "http://localhost:8000";
 //action types
 const CREATE_ORDER = "CREATE_ORDER";
 const FETCH_ORDER = "FETCH_ORDER";
 const CLEAR_ORDER = "CLEAR_ORDER";
-const CLEAR_CART = "CLEAR_CART";
 
 //action creators
 export const createOrder =
-  ({ shippingInfo, cardInfo, cartItems, totalQuantity,userId }) =>
-  async (dispatch) => {
+  ({ addressId, cardId, cartItems, totalQuantity,userId }) =>
+  async (dispatch,getState) => {
     try {
       axios
         .post("/orders", {
           id: uuidv4(),
-          shippingInfo,
-          cardInfo,
+          addressId,
+          cardId,
           cartItems,
           totalQuantity,
           userId,
@@ -25,8 +25,8 @@ export const createOrder =
         })
         .then((response) => {
           dispatch({ type: CREATE_ORDER, order: response });
-          localStorage.clear("cartItems");
-          dispatch({ type: CLEAR_CART });
+          dispatch(clearCart());
+          localStorage.removeItem("cartItems", JSON.stringify(getState().cart.cartItems));
           dispatch(
             showNotification({
               title: "Order confirmed!",

@@ -12,7 +12,12 @@ const Header = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [cartTotalCount, setCartTotalCount] = useState(0);
   useEffect(() => {
+    if(cartItems){
       setCartTotalCount(cartItems.reduce((acc, item) => acc + item.qty, 0));
+    }
+    else{
+      setCartTotalCount(0);
+    }
   }, [cartItems]);
 
   const user = localStorage.getItem("user");

@@ -9,12 +9,14 @@ import * as Yup from "yup";
 const PaymentForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.auth.user);
   const user = localStorage.getItem("user");
   const currentUser = JSON.parse(user);
   const shippingInfo = useSelector((state) => state.payment.shippingInfo);
   const cartItems = useSelector((state) => state.cart.cartItems);
+
   let order;
+  let cardInfo;
+  let totalCartItems = [];
   //calculate total sum
   let totalSum = 0;
   let subTotal = [];
@@ -22,6 +24,14 @@ const PaymentForm = () => {
     return subTotal.push(item.qty * item.price);
   });
   totalSum = subTotal.reduce((acc, val) => acc + val, 0);
+
+//just add the productId and quantity of item in order
+  for (var i in cartItems) {
+    totalCartItems.push({
+      productId: cartItems[i].id,
+      quantity: cartItems[i].qty,
+    });
+  }
 
   // this regex that matches Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards:
   // ^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$
@@ -38,11 +48,9 @@ const PaymentForm = () => {
       expiryDate: "",
       CVV: "",
     },
-    onSubmit: (values) => {
-      dispatch(addCardInfo(values));
-      dispatch(
-        createOrder(order)
-      );
+    onSubmit: () => {
+      dispatch(addCardInfo(cardInfo));
+      dispatch(createOrder(order));
       navigate("/orderstatus");
     },
     validationSchema: Yup.object({
@@ -72,16 +80,20 @@ const PaymentForm = () => {
         .required("Expiration date is required"),
     }),
   });
-  if(currentUser){
-     order={
-      shippingInfo,
+  if (currentUser) {
+    cardInfo = {
       cardInfo: formik.values,
-      cartItems: [...cartItems],
-      totalQuantity: totalSum,
-      userId:currentUser.id
-     }
-  }
+      userId: currentUser.id,
+    };
 
+    order = {
+      addressId: shippingInfo.id,
+      cardInfo: formik.values,
+      cartItems: [...totalCartItems],
+      totalQuantity: totalSum,
+      userId: currentUser.id,
+    };
+  }
   return (
     <form className="row g-3 mb-4" onSubmit={formik.handleSubmit}>
       <h6>Card information</h6>
