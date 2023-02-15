@@ -172,7 +172,7 @@
   "address": [
     {
       "shippingInfo": {
-        "firstName": "elham",
+        "firstName": "fatima",
         "lastName": "ahmadi",
         "city": "northe",
         "zip": "3451hd",
@@ -181,6 +181,18 @@
       },
       "userId": 2,
       "id": 1
+    },
+    {
+      "shippingInfo": {
+        "firstName": "fatima",
+        "lastName": "ahmadi",
+        "city": "northe",
+        "zip": "3451hd",
+        "address": "gdfhfhfh ghgfh",
+        "region": "Drenthe"
+      },
+      "userId": 3,
+      "id": 2
     }
   ],
   "card": [
@@ -198,31 +210,21 @@
   "orders": [
     {
       "addressId": 1,
-      "cardId": "9beabeb2-5a2a-47bd-abad-44d93952dae3",
+      "cardId": "2a35af7b-4f0a-4ce2-9c28-cd11fce5b758",
       "cartItems": [
         {
+          "productId": 3,
+          "quantity": 1
+        },
+        {
           "productId": 4,
-          "quantity": 2
+          "quantity": 1
         }
       ],
-      "totalQuantity": 581.98,
+      "totalQuantity": 1100.98,
       "userId": 2,
-      "date": "2/8/2023, 9:48:45 AM",
+      "date": "2/8/2023, 7:04:18 PM",
       "id": 1
-    },
-    {
-      "addressId": 1,
-      "cardId": "9beabeb2-5a2a-47bd-abad-44d93952dae3",
-      "cartItems": [
-        {
-          "productId": 4,
-          "quantity": 2
-        }
-      ],
-      "totalQuantity": 581.98,
-      "userId": 2,
-      "date": "10/8/2023, 9:48:45 AM",
-      "id": 3
     }
   ],
   "users": [
@@ -232,6 +234,18 @@
       "lastName": "ahmadi",
       "email": "it.ebagheri@gmail.com",
       "password": "eli1370"
+    }
+  ],
+  "contacts": [],
+  "site": [
+    {
+      "email": "dreamshop@gmail.com",
+      "phone": "8888-333-120",
+      "address": "1225, Main Street, Iran, 38000",
+      "aboutFooter": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore mag na aliqua.",
+      "facebookLink": "https://facebook.com/dreamshop",
+      "instagramLink": "https://instagram.com/dreamshop",
+      "twiiterLink": "https://twitter.com/dreamshop"
     }
   ]
 }

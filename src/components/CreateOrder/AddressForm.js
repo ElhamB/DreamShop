@@ -12,7 +12,7 @@ const AddressForm = () => {
   const dispatch = useDispatch();
   const user = localStorage.getItem("user");
   const currentUser = JSON.parse(user);
-  let shippingInfo;
+  let shippingInfo={};
   const formik = useFormik({
     initialValues: {
       firstName: "",

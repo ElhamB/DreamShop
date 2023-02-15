@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchOrder } from "../../store/Order";
+import { fetchOrder, orderDetailsAction } from "../../store/Order";
+import { fetchShippingInfo } from "../../store/Payment";
 import {formatCurrency} from '../../utilities'
 import Button from "../UI/Button";
 import "./Order.css";
@@ -16,9 +17,11 @@ const Orders = () => {
     if(currentUser){
       dispatch(fetchOrder(currentUser.id));
     }
-  }, [dispatch, currentUser]);
+  }, [dispatch, currentUser.id]);
 
   const showDetailshandler = (id) => {
+    dispatch(orderDetailsAction(id));
+    dispatch(fetchShippingInfo(currentUser.id))
     navigate(`/order/${id}`);
   };
 

@@ -6,17 +6,16 @@
     color:var(--gray-color);
 }
 .sub-section{
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     margin-bottom: 15px;
     padding-bottom: 10px;
 }
-.order-items{
-list-style-type: none;
-}
+
 .order-items > div{
     border: 1px solid #ddd;
     text-align: center;
 }
-.order-items .img-con{
+.order-items .img-container{
 width: 120px;
 }
+.order-items .img-container a{display: block;}

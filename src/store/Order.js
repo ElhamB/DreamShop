@@ -54,7 +54,7 @@ export const clearOrder = () => async (dispatch) => {
 };
 export const fetchOrder = (userId) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`/orders?userId:${userId}`);
+    const { data } = await axios.get(`/orders?userId=${userId}`);
     dispatch({ type: FETCH_ORDER, orders: data });
   } catch (error) {
     console.log(error);
@@ -72,7 +72,6 @@ export const orderDetailsAction = (id) => async (dispatch) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
     const { data } = await axios.get(`/orders/${id}`);
-    console.log(data);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     console.log(error);

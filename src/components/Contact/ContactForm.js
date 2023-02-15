@@ -26,7 +26,7 @@ const ContactForm = () => {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="row">
+      <div className="row g-3">
         <div className="col-md-6">
           <label htmlFor="name" className="form-label">
             Your name
@@ -62,7 +62,9 @@ const ContactForm = () => {
           />
          {formik.touched.message && formik.errors.message ? (<div className="text-danger">{formik.errors.message}</div>):null}
         </div>
-        <Button class="mt-5">send message</Button>
+        <div className="col-md-12 text-center">
+        <Button>send message</Button>
+        </div>
       </div>
     </form>
   );
