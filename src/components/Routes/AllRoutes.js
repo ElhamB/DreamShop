@@ -34,8 +34,8 @@ const AllRoutes = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/checkout" element={<CheckOutPage />} />
-          <Route path="/search/" element={<SearchPage />} />
-          <Route path="/search/:categoryId" element={<SearchPage />} />
+          <Route path="/products/" element={<SearchPage />} />
+          <Route path="/products/:categoryId" element={<SearchPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/orderstatus" element={<OrderStatusPage />} />

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { PriceSlider } from "../PriceSlider/PriceSlider";
 import { filterByValue } from "../../store/Filter";
-import Category from "../Category/Category";
+import Category from "../Category";
 const SearchFilter = () => {
   const dispatch = useDispatch();
 

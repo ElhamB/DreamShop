@@ -4,7 +4,7 @@ import SearchResult from "../../components/Search/SearchResult";
 import SearchSorting from "../../components/Search/SearchSorting";
 import Title from "../../components/Title/Title";
 export const SearchPage = () => {
-  const title = "Search";
+  const title = "Products";
 
   return (
     <Fragment>
